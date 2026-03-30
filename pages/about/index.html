@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании | Санрайз</title>
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 60px;
+            padding: 60px;
+            box-shadow: 0 30px 60px rgba(230, 80, 32, 0.1);
+        }
+
+        .about-section {
+            margin-bottom: 50px;
+        }
+
+        .about-section h3 {
+            font-size: 2rem;
+            color: #E65020;
+            margin-bottom: 30px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #E65020, #F3A119);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                padding: 30px;
+                border-radius: 40px;
+            }
+
+            .about-section h3 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Оверлей для мобильного меню -->
+<div class="overlay" id="overlay" onclick="toggleMobileMenu()"></div>
+
+<!-- Мобильное меню -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-close" onclick="toggleMobileMenu()">×</div>
+
+    <div class="mobile-nav-item">
+        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">Строительство домов</div>
+        <div class="mobile-dropdown">
+            <a href="../building/brick-houses.html" class="mobile-dropdown-item">Кирпичные дома</a>
+            <a href="../building/frame-houses.html" class="mobile-dropdown-item">Каркасные дома</a>
+            <a href="../building/turnkey.html" class="mobile-dropdown-item">Дома под ключ</a>
+        </div>
+    </div>
+
+    <div class="mobile-nav-item">
+        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">Ремонт и отделка</div>
+        <div class="mobile-dropdown">
+            <a href="../renovation/apartment-renovation.html" class="mobile-dropdown-item">Ремонт квартир</a>
+            <a href="../renovation/office-renovation.html" class="mobile-dropdown-item">Ремонт офисов</a>
+            <a href="../renovation/design-project.html" class="mobile-dropdown-item">Дизайн проекты</a>
+        </div>
+    </div>
+
+    <div class="mobile-nav-item">
+        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">Часто задаваемые вопросы</div>
+        <div class="mobile-dropdown">
+            <a href="../faq/payment.html" class="mobile-dropdown-item">Оплата</a>
+            <a href="../faq/guarantees.html" class="mobile-dropdown-item">Гарантии</a>
+            <a href="../faq/materials.html" class="mobile-dropdown-item">Материалы</a>
+        </div>
+    </div>
+
+    <div class="mobile-nav-item">
+        <div class="mobile-nav-link active" onclick="toggleMobileDropdown(this)">О компании</div>
+        <div class="mobile-dropdown active">
+            <a href="team.html" class="mobile-dropdown-item">Наша команда</a>
+            <a href="reviews.html" class="mobile-dropdown-item">Отзывы</a>
+            <a href="contacts.html" class="mobile-dropdown-item">Контакты</a>
+        </div>
+    </div>
+
+    <div class="mobile-contacts">
+        <a href="tel:+79991234567" class="mobile-contact"><span>📞</span> +7 (999) 123-45-67</a>
+        <a href="mailto:info@sunrise.ru" class="mobile-contact"><span>✉️</span> info@sunrise.ru</a>
+        <div class="mobile-contact"><span>📍</span> Москва, ул. Рассветная, 10</div>
+    </div>
+</div>
+
+<!-- ШАПКА -->
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <a href="../../index.html">
+                <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://via.placeholder.com/200x70/E65020/F3A119?text=САНРАЙЗ'">
+            </a>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="../building/index.html" class="nav-link">Строительство домов</a>
+                <div class="dropdown">
+                    <a href="../building/brick-houses.html" class="dropdown-item">Кирпичные дома</a>
+                    <a href="../building/frame-houses.html" class="dropdown-item">Каркасные дома</a>
+                    <a href="../building/turnkey.html" class="dropdown-item">Дома под ключ</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="../renovation/index.html" class="nav-link">Ремонт и отделка</a>
+                <div class="dropdown">
+                    <a href="../renovation/apartment-renovation.html" class="dropdown-item">Ремонт квартир</a>
+                    <a href="../renovation/office-renovation.html" class="dropdown-item">Ремонт офисов</a>
+                    <a href="../renovation/design-project.html" class="dropdown-item">Дизайн проекты</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="../faq/index.html" class="nav-link">Часто задаваемые вопросы</a>
+                <div class="dropdown">
+                    <a href="../faq/payment.html" class="dropdown-item">Оплата</a>
+                    <a href="../faq/guarantees.html" class="dropdown-item">Гарантии</a>
+                    <a href="../faq/materials.html" class="dropdown-item">Материалы</a>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a href="index.html" class="nav-link">О компании</a>
+                <div class="dropdown">
+                    <a href="team.html" class="dropdown-item">Наша команда</a>
+                    <a href="reviews.html" class="dropdown-item">Отзывы</a>
+                    <a href="contacts.html" class="dropdown-item">Контакты</a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="contacts-header">
+            <a href="tel:+79991234567" class="contact-badge"><span>📞</span> +7 (999) 123-45-67</a>
+            <a href="mailto:info@sunrise.ru" class="contact-badge"><span>✉️</span> info@sunrise.ru</a>
+        </div>
+
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
+
+<!-- ОСНОВНОЙ КОНТЕНТ -->
+<section class="section">
+    <div class="container">
+        <h1><span>О компании</span> Санрайз</h1>
+
+        <div class="about-content">
+            <div class="about-section">
+                <h3>Кто мы</h3>
+                <p style="font-size: 1.2rem; line-height: 1.8; color: #333;">Санрайз — это команда профессионалов с 12-летним опытом в строительстве и ремонте. Мы создаем пространства, в которых хочется жить, работать и творить.</p>
+            </div>
+
+            <div class="about-section">
+                <h3>Наши ценности</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px;">
+                    <div style="background: #FCF9F5; padding: 25px; border-radius: 30px;">
+                        <div style="font-size: 2.5rem; margin-bottom: 15px;">❤️</div>
+                        <h4>Душевность</h4>
+                        <p>Каждый проект делаем с любовью</p>
+                    </div>
+                    <div style="background: #FCF9F5; padding: 25px; border-radius: 30px;">
+                        <div style="font-size: 2.5rem; margin-bottom: 15px;">⏱️</div>
+                        <h4>Пунктуальность</h4>
+                        <p>Соблюдаем сроки до дня</p>
+                    </div>
+                    <div style="background: #FCF9F5; padding: 25px; border-radius: 30px;">
+                        <div style="font-size: 2.5rem; margin-bottom: 15px;">💰</div>
+                        <h4>Честность</h4>
+                        <p>Прозрачная смета без скрытых платежей</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h3>Наша команда</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-photo">👨‍💼</div>
+                        <h4>Алексей Петров</h4>
+                        <p style="color: #E65020;">Основатель</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">👩‍💼</div>
+                        <h4>Елена Соколова</h4>
+                        <p style="color: #E65020;">Главный архитектор</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">👨‍🔧</div>
+                        <h4>Дмитрий Иванов</h4>
+                        <p style="color: #E65020;">Прораб</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h3>Реквизиты</h3>
+                <p><strong>ООО "Санрайз"</strong><br>
+                    ИНН: 1234567890<br>
+                    ОГРН: 1234567890123<br>
+                    Юр. адрес: г. Москва, ул. Рассветная, д. 10</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://via.placeholder.com/200x70/E65020/F3A119?text=САНРАЙЗ'">
+                </div>
+                <p>Строительство и ремонт с душой.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="../../index.html">Главная</a></li>
+                    <li><a href="../building/index.html">Строительство</a></li>
+                    <li><a href="../renovation/index.html">Ремонт</a></li>
+                    <li><a href="../faq/index.html">Вопросы</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><a href="tel:+79991234567">+7 (999) 123-45-67</a></li>
+                    <li><a href="mailto:info@sunrise.ru">info@sunrise.ru</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2026 Санрайз. Все права защищены.</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('overlay');
+
+        mobileMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+
+        if (mobileMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
+
+    function toggleMobileDropdown(element) {
+        const dropdown = element.nextElementSibling;
+        element.classList.toggle('active');
+        dropdown.classList.toggle('active');
+    }
+
+    document.querySelectorAll('.mobile-dropdown-item').forEach(link => {
+        link.addEventListener('click', () => {
+            toggleMobileMenu();
+        });
+    });
+</script>
+</body>
+</html>

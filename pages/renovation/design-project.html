@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дизайн проекты | Санрайз</title>
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/design-project.css">
+</head>
+<body>
+
+<!-- Мобильное меню -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-close" onclick="toggleMobileMenu()">×</div>
+    <div class="mobile-nav-item">
+        <a href="../../pages/renovation/index.html" class="mobile-nav-link">Ремонт квартир и домов</a>
+        <div class="mobile-dropdown">
+            <a href="apartment-renovation.html" class="mobile-dropdown-item">Ремонт квартир и домов</a>
+            <a href="office-renovation.html" class="mobile-dropdown-item">Ремонт коммерческих помещений</a>
+            <a href="design-project.html" class="mobile-dropdown-item">Дизайн-проекты</a>
+        </div>
+    </div>
+    <div class="mobile-nav-item">
+        <a href="../../pages/building/index.html" class="mobile-nav-link">Строительство домов</a>
+        <div class="mobile-dropdown">
+            <a href="../../pages/building/brick-houses.html" class="mobile-dropdown-item">Кирпичные дома</a>
+            <a href="../../pages/building/frame-houses.html" class="mobile-dropdown-item">Каркасные дома</a>
+            <a href="../../pages/building/turnkey.html" class="mobile-dropdown-item">Дома под ключ</a>
+        </div>
+    </div>
+    <div class="mobile-nav-item">
+        <a href="../../pages/portfolio/index.html" class="mobile-nav-link">Портфолио</a>
+    </div>
+    <div class="mobile-nav-item">
+        <a href="../../pages/prices/index.html" class="mobile-nav-link">Цены</a>
+    </div>
+    <div class="mobile-nav-item">
+        <a href="../../pages/about/index.html" class="mobile-nav-link">О компании</a>
+        <div class="mobile-dropdown">
+            <a href="../../pages/about/team.html" class="mobile-dropdown-item">Наша команда</a>
+            <a href="../../pages/about/reviews.html" class="mobile-dropdown-item">Отзывы</a>
+            <a href="../../pages/about/contacts.html" class="mobile-dropdown-item">Контакты</a>
+        </div>
+    </div>
+
+    <div class="mobile-contacts">
+        <a href="tel:+79991234567" style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: #1E1E1E; text-decoration: none;">
+            <span style="color: #E65020;">📞</span> +7 (999) 123-45-67
+        </a>
+        <a href="mailto:info@sunrise.ru" style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: #1E1E1E; text-decoration: none;">
+            <span style="color: #E65020;">✉️</span> info@sunrise.ru
+        </a>
+    </div>
+</div>
+
+<!-- ШАПКА -->
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <a href="../../index.html">
+                <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://via.placeholder.com/200x70/E65020/F3A119?text=САНРАЙЗ'">
+            </a>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="../../pages/renovation/index.html" class="nav-link">Ремонт квартир и домов</a>
+                <div class="dropdown">
+                    <a href="apartment-renovation.html" class="dropdown-item">Ремонт квартир и домов</a>
+                    <a href="office-renovation.html" class="dropdown-item">Ремонт коммерческих помещений</a>
+                    <a href="design-project.html" class="dropdown-item">Дизайн-проекты</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="../../pages/building/index.html" class="nav-link">Строительство домов</a>
+                <div class="dropdown">
+                    <a href="../../pages/building/brick-houses.html" class="dropdown-item">Кирпичные дома</a>
+                    <a href="../../pages/building/frame-houses.html" class="dropdown-item">Каркасные дома</a>
+                    <a href="../../pages/building/turnkey.html" class="dropdown-item">Дома под ключ</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="../../pages/portfolio/index.html" class="nav-link">Портфолио</a>
+            </li>
+            <li class="nav-item">
+                <a href="../../pages/prices/index.html" class="nav-link">Цены</a>
+            </li>
+            <li class="nav-item dropdown-right">
+                <a href="../../pages/about/index.html" class="nav-link">О компании</a>
+                <div class="dropdown dropdown-align-right">
+                    <a href="../../pages/about/team.html" class="dropdown-item">Наша команда</a>
+                    <a href="../../pages/about/reviews.html" class="dropdown-item">Отзывы</a>
+                    <a href="../../pages/about/contacts.html" class="dropdown-item">Контакты</a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="contacts-header">
+            <a href="tel:+79991234567" class="contact-badge"><span>📞</span> +7 (999) 123-45-67</a>
+            <a href="mailto:info@sunrise.ru" class="contact-badge"><span>✉️</span> info@sunrise.ru</a>
+        </div>
+
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
+
+<!-- ГЕРОЙ ДИЗАЙН ПРОЕКТОВ -->
+<section class="design-hero">
+    <div class="container">
+        <h1 class="design-title"><span>Дизайн</span> проекты интерьеров</h1>
+        <p class="design-subtitle">Создаем уникальные пространства, где форма встречается с функциональностью. Каждый проект — это отражение вашей личности.</p>
+    </div>
+</section>
+
+<!-- СЕТКА ПРОЕКТОВ -->
+<section class="section">
+    <div class="container">
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Проекты будут загружены через JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://via.placeholder.com/200x70/E65020/F3A119?text=САНРАЙЗ'">
+                </div>
+                <p>Строительство и ремонт с душой. Работаем по всему Башкортостану с 2012 года.</p>
+                <button onclick="openModal()" class="contact-btn" style="margin-top: 15px;">Бесплатный расчет</button>
+            </div>
+            <div class="footer-col">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="../../pages/renovation/index.html">Ремонт квартир и домов</a></li>
+                    <li><a href="../../pages/building/index.html">Строительство</a></li>
+                    <li><a href="../../pages/portfolio/index.html">Портфолио</a></li>
+                    <li><a href="../../pages/about/index.html">О компании</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Услуги</h4>
+                <ul>
+                    <li><a href="../../pages/building/brick-houses.html">Кирпичные дома</a></li>
+                    <li><a href="../../pages/building/frame-houses.html">Каркасные дома</a></li>
+                    <li><a href="apartment-renovation.html">Ремонт квартир</a></li>
+                    <li><a href="design-project.html">Дизайн проекты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><a href="tel:+79991234567">📞 +7 (999) 123-45-67</a></li>
+                    <li><a href="mailto:info@sunrise.ru">✉️ info@sunrise.ru</a></li>
+                    <li>📍 Уфа, ул. Строителей, 10</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2026 Санрайз. Все права защищены.</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Данные проектов (обновленные названия и описания)
+    const projects = [
+        {
+            title: "Неоклассика в светлых тонах",
+            area: "120 м²",
+            description: "Элегантный интерьер с лепниной, мраморными элементами и благородными оттенками. Пространство дышит воздухом и светом, создавая атмосферу утонченной роскоши.",
+            tags: ["Неоклассика", "Мрамор", "Лепнина", "Пастельные тона"],
+            images: [
+                "images/project1/1.png",
+                "images/project1/2.png",
+                "images/project1/3.png",
+                "images/project1/4.png"
+            ]
+        },
+        {
+            title: "Неоклассика",
+            area: "95 м²",
+            description: "Классическая основа с современными решениями. Изысканные формы, благородные материалы и продуманная планировка для комфортной жизни.",
+            tags: ["Неоклассика", "Современный", "Элегантность"],
+            images: [
+                "images/project2/1.png",
+                "images/project2/2.png",
+                "images/project2/3.png"
+            ]
+        },
+        {
+            title: "Mid Century Modern",
+            area: "87 м²",
+            description: "Винтажный шик середины XX века. Органичное сочетание дерева, геометрических форм и ярких акцентов. Атмосфера уюта с нотками ретро-элегантности.",
+            tags: ["Mid Century", "Винтаж", "Дерево", "Геометрия"],
+            images: [
+                "images/project3/1.png",
+                "images/project3/2.png",
+                "images/project3/3.png",
+                "images/project3/4.png"
+            ]
+        },
+        {
+            title: "Современный минимализм",
+            area: "110 м²",
+            description: "Чистые линии, максимум света и воздуха. Функциональное пространство без лишних деталей, где каждая вещь имеет свое место.",
+            tags: ["Минимализм", "Современный", "Светлые тона", "Функциональность"],
+            images: [
+                "images/project4/1.png",
+                "images/project4/2.png"
+            ]
+        }
+    ];
+
+    let currentSlides = {};
+
+    function createCarousel(images, projectIndex) {
+        let dots = '';
+        for (let i = 0; i < images.length; i++) {
+            dots += `<span class="carousel-dot ${i === 0 ? 'active' : ''}" data-slide="${i}"></span>`;
+        }
+
+        return `
+            <div class="carousel-container">
+                <div class="carousel" data-project="${projectIndex}">
+                    <div class="carousel-inner" id="carousel-inner-${projectIndex}">
+                        ${images.map(img => `
+                            <div class="carousel-item">
+                                <img src="${img}" alt="Дизайн проект" onerror="this.src='https://via.placeholder.com/600x400/E65020/F3A119?text=Фото+проекта'">
+                            </div>
+                        `).join('')}
+                    </div>
+                    <button class="carousel-btn prev" data-project="${projectIndex}">←</button>
+                    <button class="carousel-btn next" data-project="${projectIndex}">→</button>
+                    <div class="carousel-dots" data-project="${projectIndex}">
+                        ${dots}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function updateCarousel(projectIndex) {
+        const inner = document.getElementById(`carousel-inner-${projectIndex}`);
+        if (inner) {
+            inner.style.transform = `translateX(-${currentSlides[projectIndex] * 100}%)`;
+
+            const dots = document.querySelectorAll(`.carousel-dots[data-project="${projectIndex}"] .carousel-dot`);
+            dots.forEach((dot, i) => {
+                if (i === currentSlides[projectIndex]) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+    }
+
+    function prevSlide(projectIndex) {
+        if (currentSlides[projectIndex] === undefined) currentSlides[projectIndex] = 0;
+        const total = projects[projectIndex].images.length;
+        currentSlides[projectIndex] = (currentSlides[projectIndex] - 1 + total) % total;
+        updateCarousel(projectIndex);
+    }
+
+    function nextSlide(projectIndex) {
+        if (currentSlides[projectIndex] === undefined) currentSlides[projectIndex] = 0;
+        const total = projects[projectIndex].images.length;
+        currentSlides[projectIndex] = (currentSlides[projectIndex] + 1) % total;
+        updateCarousel(projectIndex);
+    }
+
+    function goToSlide(projectIndex, slideIndex) {
+        currentSlides[projectIndex] = slideIndex;
+        updateCarousel(projectIndex);
+    }
+
+    function loadProjects() {
+        const grid = document.getElementById('projectsGrid');
+        if (!grid) return;
+
+        projects.forEach((project, index) => {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card';
+            projectCard.innerHTML = `
+                <div class="project-header">
+                    <h3 class="project-title">${project.title}</h3>
+                    <span class="project-area">${project.area}</span>
+                </div>
+                ${createCarousel(project.images, index)}
+                <div class="project-description">
+                    ${project.description}
+                </div>
+                <div class="project-tags">
+                    ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                </div>
+            `;
+            grid.appendChild(projectCard);
+            currentSlides[index] = 0;
+        });
+
+        // Добавляем обработчики после создания DOM
+        setTimeout(() => {
+            document.querySelectorAll('.carousel-btn.prev').forEach(btn => {
+                const projectIdx = parseInt(btn.getAttribute('data-project'));
+                btn.addEventListener('click', () => prevSlide(projectIdx));
+            });
+
+            document.querySelectorAll('.carousel-btn.next').forEach(btn => {
+                const projectIdx = parseInt(btn.getAttribute('data-project'));
+                btn.addEventListener('click', () => nextSlide(projectIdx));
+            });
+
+            document.querySelectorAll('.carousel-dot').forEach(dot => {
+                const dotsContainer = dot.closest('.carousel-dots');
+                const projectIdx = parseInt(dotsContainer.getAttribute('data-project'));
+                const slideIdx = parseInt(dot.getAttribute('data-slide'));
+                dot.addEventListener('click', () => goToSlide(projectIdx, slideIdx));
+            });
+        }, 100);
+    }
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        if (menu) {
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+    }
+
+    function openModal() {
+        // Функция для открытия модального окна
+        window.location.href = '../../index.html#contact';
+    }
+
+    document.addEventListener('DOMContentLoaded', loadProjects);
+
+    document.querySelectorAll('.mobile-dropdown-item, .mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu')?.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+</script>
+
+</body>
+</html>

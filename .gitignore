@@ -1,0 +1,21 @@
+# IDE
+.idea/
+.vscode/
+
+# Системные
+.DS_Store
+Thumbs.db
+
+# Логи
+*.log
+*.pyc
+__pycache__/
+
+# Секреты (ВАЖНО!)
+.env
+config.py
+secrets.json
+
+# Временные файлы
+*.tmp
+*.temp
