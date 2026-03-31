@@ -54,30 +54,35 @@
 <!-- Мобильное меню -->
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-close" onclick="toggleMobileMenu()">×</div>
+
     <div class="mobile-nav-item">
-        <a href="pages/renovation/index.html" class="mobile-nav-link">Ремонт квартир и домов</a>
+        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">Ремонт квартир и домов</div>
         <div class="mobile-dropdown">
             <a href="pages/renovation/apartment-renovation.html" class="mobile-dropdown-item">Ремонт квартир и домов</a>
             <a href="pages/renovation/office-renovation.html" class="mobile-dropdown-item">Ремонт коммерческих помещений</a>
             <a href="pages/renovation/design-project.html" class="mobile-dropdown-item">Дизайн-проекты</a>
         </div>
     </div>
+
     <div class="mobile-nav-item">
-        <a href="pages/building/index.html" class="mobile-nav-link">Строительство домов</a>
+        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">Строительство домов</div>
         <div class="mobile-dropdown">
             <a href="pages/building/brick-houses.html" class="mobile-dropdown-item">Кирпичные дома</a>
             <a href="pages/building/frame-houses.html" class="mobile-dropdown-item">Каркасные дома</a>
             <a href="pages/building/turnkey.html" class="mobile-dropdown-item">Дома под ключ</a>
         </div>
     </div>
+
     <div class="mobile-nav-item">
-        <a href="pages/portfolio/index.html" class="mobile-nav-link">Портфолио</a>
+        <a href="pages/portfolio/index.html" class="mobile-nav-link" style="pointer-events: none;">Портфолио</a>
     </div>
+
     <div class="mobile-nav-item">
-        <a href="pages/prices/index.html" class="mobile-nav-link">Цены</a>
+        <a href="pages/prices/index.html" class="mobile-nav-link" style="pointer-events: none;">Цены</a>
     </div>
+
     <div class="mobile-nav-item">
-        <a href="pages/about/index.html" class="mobile-nav-link">О компании</a>
+        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">О компании</div>
         <div class="mobile-dropdown">
             <a href="pages/about/team.html" class="mobile-dropdown-item">Наша команда</a>
             <a href="pages/about/reviews.html" class="mobile-dropdown-item">Отзывы</a>
@@ -85,14 +90,10 @@
         </div>
     </div>
 
-    <!-- Контакты в мобильном меню -->
-    <div class="mobile-contacts" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(230,80,32,0.2);">
-        <a href="tel:+79991234567" style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: #1E1E1E; text-decoration: none;">
-            <span style="color: #E65020;">📞</span> +7 (999) 123-45-67
-        </a>
-        <a href="mailto:info@sunrise.ru" style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: #1E1E1E; text-decoration: none;">
-            <span style="color: #E65020;">✉️</span> info@sunrise.ru
-        </a>
+    <div class="mobile-contacts">
+        <a href="tel:+79991234567" class="mobile-contact">📞 +7 (999) 123-45-67</a>
+        <a href="mailto:info@sunrise.ru" class="mobile-contact">✉️ info@sunrise.ru</a>
+        <button onclick="openModal(); closeMobileMenu();" class="contact-btn" style="margin-top: 15px; width: 100%;">Бесплатный расчет</button>
     </div>
 </div>
 

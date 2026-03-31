@@ -1,4 +1,4 @@
-// Данные для карусели проектов (замените на свои изображения)
+// Данные для карусели проектов
 const projectsData = [
     { image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=500&fit=crop", caption: "Коттедж в ЖК «Солнечный», 210 м²" },
     { image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=500&fit=crop", caption: "Дизайн-проект гостиной, 45 м²" },
@@ -83,6 +83,33 @@ function resetAutoPlay() {
     slideInterval = setInterval(nextSlide, 3000);
 }
 
+// ========== МОБИЛЬНОЕ МЕНЮ (ИСПРАВЛЕНО) ==========
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    if (!menu) return;
+    menu.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+}
+
+function toggleMobileDropdown(element) {
+    const parent = element.closest('.mobile-nav-item');
+    if (!parent) return;
+    const dropdown = parent.querySelector('.mobile-dropdown');
+    if (!dropdown) return;
+    element.classList.toggle('active');
+    dropdown.classList.toggle('active');
+}
+
+// Закрытие меню при клике на любую ссылку
+function closeMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    if (menu) {
+        menu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// ========== МОДАЛЬНОЕ ОКНО ==========
 function openModal() {
     const modalOverlay = document.getElementById('modalOverlay');
     const contactModal = document.getElementById('contactModal');
@@ -99,6 +126,7 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
+// ========== ОТПРАВКА ФОРМЫ ==========
 async function sendForm(event) {
     event.preventDefault();
 
@@ -109,8 +137,8 @@ async function sendForm(event) {
 
     const statusDiv = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
-    const loader = submitBtn.querySelector('.btn-loader');
-    const btnText = submitBtn.querySelector('span:first-child');
+    const loader = submitBtn?.querySelector('.btn-loader');
+    const btnText = submitBtn?.querySelector('span:first-child');
 
     if (!name) {
         showError('Введите ваше имя');
@@ -127,80 +155,83 @@ async function sendForm(event) {
         return;
     }
 
-    statusDiv.style.display = 'none';
-    submitBtn.disabled = true;
-    loader.style.display = 'inline';
-    btnText.style.opacity = '0.7';
+    if (statusDiv) statusDiv.style.display = 'none';
+    if (submitBtn) submitBtn.disabled = true;
+    if (loader) loader.style.display = 'inline';
+    if (btnText) btnText.style.opacity = '0.7';
 
     try {
-        const SERVER_URL = 'http://localhost:5001/send_message';
+        // TODO: Заменить на реальный URL после деплоя Worker
+        const SERVER_URL = 'https://sunrise-bot.ваш-аккаунт.workers.dev';
+
+        // Пока используем тестовый режим (просто имитируем отправку)
+        if (SERVER_URL.includes('ваш-аккаунт')) {
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            showSuccess('✓ Заявка отправлена! Мы свяжемся с вами.');
+            clearForm();
+            setTimeout(() => closeModal(), 2000);
+            return;
+        }
 
         const response = await fetch(SERVER_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                name: name,
-                phone: phone,
-                message: message
-            })
+            body: JSON.stringify({ name, phone, message })
         });
 
         const result = await response.json();
 
         if (result.success) {
-            statusDiv.className = 'form-status success';
-            statusDiv.textContent = '✓ ' + result.message;
-            statusDiv.style.display = 'block';
-
-            document.getElementById('name').value = '';
-            document.getElementById('phone').value = '';
-            document.getElementById('message').value = '';
-
-            setTimeout(() => {
-                closeModal();
-                statusDiv.style.display = 'none';
-            }, 3000);
+            showSuccess('✓ ' + result.message);
+            clearForm();
+            setTimeout(() => closeModal(), 2000);
         } else {
             throw new Error(result.error || 'Ошибка отправки');
         }
     } catch (error) {
-        statusDiv.className = 'form-status error';
-        statusDiv.textContent = '✗ Ошибка отправки. Попробуйте позже или позвоните нам.';
-        statusDiv.style.display = 'block';
         console.error('Error:', error);
+        showError('✗ Ошибка отправки. Попробуйте позже или позвоните нам.');
     } finally {
-        submitBtn.disabled = false;
-        loader.style.display = 'none';
-        btnText.style.opacity = '1';
+        if (submitBtn) submitBtn.disabled = false;
+        if (loader) loader.style.display = 'none';
+        if (btnText) btnText.style.opacity = '1';
     }
 }
 
 function showError(text) {
     const statusDiv = document.getElementById('formStatus');
+    if (!statusDiv) return;
     statusDiv.className = 'form-status error';
     statusDiv.textContent = '✗ ' + text;
     statusDiv.style.display = 'block';
-
     setTimeout(() => {
         statusDiv.style.display = 'none';
     }, 3000);
 }
 
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('active');
-
-    if (menu.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
-    }
+function showSuccess(text) {
+    const statusDiv = document.getElementById('formStatus');
+    if (!statusDiv) return;
+    statusDiv.className = 'form-status success';
+    statusDiv.textContent = text;
+    statusDiv.style.display = 'block';
 }
 
+function clearForm() {
+    const nameInput = document.getElementById('name');
+    const phoneInput = document.getElementById('phone');
+    const messageInput = document.getElementById('message');
+    if (nameInput) nameInput.value = '';
+    if (phoneInput) phoneInput.value = '';
+    if (messageInput) messageInput.value = '';
+}
+
+// ========== КАЛЬКУЛЯТОР ==========
 function calculatePrice() {
-    const area = parseInt(document.getElementById('areaRange').value);
+    const areaRange = document.getElementById('areaRange');
+    const area = areaRange ? parseInt(areaRange.value) : 100;
     let type = document.querySelector('.calc-option.active[data-type]')?.getAttribute('data-type') || 'building';
     let complexity = document.querySelector('.calc-option.active[data-complexity]')?.getAttribute('data-complexity') || 'capital';
 
@@ -208,21 +239,24 @@ function calculatePrice() {
     let complexityMultiplier = complexity === 'cosmetic' ? 0.7 : complexity === 'premium' ? 1.5 : 1;
     let total = area * basePrice * complexityMultiplier;
 
-    document.getElementById('totalPrice').textContent = Math.round(total).toLocaleString('ru-RU') + ' ₽';
+    const totalPrice = document.getElementById('totalPrice');
+    if (totalPrice) totalPrice.textContent = Math.round(total).toLocaleString('ru-RU') + ' ₽';
 }
 
 function updateArea(value) {
-    document.getElementById('areaValue').textContent = value;
+    const areaValue = document.getElementById('areaValue');
+    if (areaValue) areaValue.textContent = value;
     calculatePrice();
 }
 
 function calculateAndRedirect() {
-    const area = document.getElementById('areaRange').value;
+    const areaRange = document.getElementById('areaRange');
+    const area = areaRange ? areaRange.value : 100;
     let typeElement = document.querySelector('.calc-option.active[data-type]');
     let type = typeElement ? typeElement.textContent : 'Строительство дома';
     let complexityElement = document.querySelector('.calc-option.active[data-complexity]');
     let complexity = complexityElement ? complexityElement.textContent : 'Капитальный';
-    let price = document.getElementById('totalPrice').textContent;
+    let price = document.getElementById('totalPrice')?.textContent || '0 ₽';
 
     const calcData = {
         type: type,
@@ -261,6 +295,7 @@ function initCalculator() {
     calculatePrice();
 }
 
+// ========== ИНИЦИАЛИЗАЦИЯ ==========
 document.addEventListener('DOMContentLoaded', function() {
     initHeroCarousel();
     initCalculator();
@@ -271,20 +306,15 @@ document.addEventListener('DOMContentLoaded', function() {
             mask: '+{7} (000) 000-00-00'
         });
     }
+
+    // Закрытие меню при клике на ссылки в мобильном меню
+    document.querySelectorAll('.mobile-dropdown-item').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
 });
 
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeModal();
     }
-});
-
-document.querySelectorAll('.mobile-dropdown-item, .mobile-nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        const mobileMenu = document.getElementById('mobileMenu');
-        if (mobileMenu) {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
 });

@@ -3,12 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О компании | Санрайз</title>
+    <title>Наша команда | Санрайз</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/about.css">
+    <style>
+        .team-page-hero {
+            background: linear-gradient(135deg, rgba(230,80,32,0.05), rgba(243,161,25,0.05));
+            padding: 60px 0 50px;
+            text-align: center;
+        }
+        .team-page-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        .team-page-title span {
+            background: linear-gradient(135deg, #E65020, #F3A119);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .team-page-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .team-grid-full {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+        @media (max-width: 968px) {
+            .team-grid-full {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .team-page-title { font-size: 2.5rem; }
+        }
+        @media (max-width: 568px) {
+            .team-grid-full {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -77,6 +116,7 @@
     <div class="mobile-nav-item">
         <div class="mobile-nav-link active" onclick="toggleMobileDropdown(this)">О компании</div>
         <div class="mobile-dropdown active">
+            <a href="index.html" class="mobile-dropdown-item">О компании</a>
             <a href="team.html" class="mobile-dropdown-item">Наша команда</a>
             <a href="reviews.html" class="mobile-dropdown-item">Отзывы</a>
             <a href="contacts.html" class="mobile-dropdown-item">Контакты</a>
@@ -141,65 +181,20 @@
     </div>
 </header>
 
-<!-- ОСНОВНОЙ КОНТЕНТ -->
+<!-- ГЕРОЙ -->
+<section class="team-page-hero">
+    <div class="container">
+        <h1 class="team-page-title"><span>Наша</span> команда</h1>
+        <p class="team-page-subtitle">Профессионалы, которые создают ваш идеальный дом. Опыт, ответственность и любовь к своему делу.</p>
+    </div>
+</section>
+
+<!-- СЕТКА СОТРУДНИКОВ -->
 <section class="section">
     <div class="container">
-        <h1><span>О компании</span> Санрайз</h1>
-
-        <div class="about-content">
-            <!-- Кто мы -->
-            <div class="about-section">
-                <h3>Кто мы</h3>
-                <p style="font-size: 1.2rem; line-height: 1.8; color: #333;">Санрайз — это команда профессионалов с 14-летним опытом в строительстве и ремонте. Мы создаем пространства, в которых хочется жить, работать и творить. Более 500 сданных объектов по всему Башкортостану.</p>
-            </div>
-
-            <!-- Наша команда (карусель) -->
-            <div class="about-section">
-                <h3>Наша команда</h3>
-                <div id="teamCarousel"></div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="team.html" class="contact-btn" style="display: inline-block; text-decoration: none;">Все сотрудники →</a>
-                </div>
-            </div>
-
-            <!-- Наши ценности -->
-            <div class="about-section">
-                <h3>Наши ценности</h3>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon">❤️</div>
-                        <h4>Душевность</h4>
-                        <p>Каждый проект делаем с любовью и вниманием к деталям</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">⏱️</div>
-                        <h4>Пунктуальность</h4>
-                        <p>Соблюдаем сроки до дня. Штрафы за просрочку</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">💰</div>
-                        <h4>Честность</h4>
-                        <p>Прозрачная смета без скрытых платежей. Фиксируем цену в договоре</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">🎥</div>
-                        <h4>Открытость</h4>
-                        <p>Онлайн-наблюдение 24/7 за ходом работ</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Реквизиты -->
-            <div class="about-section">
-                <h3>Реквизиты</h3>
-                <div class="requisites">
-                    <p><strong>ООО "Санрайз"</strong></p>
-                    <p>ИНН: 1234567890</p>
-                    <p>ОГРН: 1234567890123</p>
-                    <p>Юр. адрес: г. Уфа, ул. Строителей, д. 10</p>
-                    <p>Режим работы: Пн-Пт 9:00-19:00</p>
-                </div>
-            </div>
+        <div id="teamGrid" class="team-grid-full"></div>
+        <div style="text-align: center; margin-top: 40px;">
+            <button onclick="openModal()" class="contact-btn" style="padding: 14px 35px; font-size: 1rem;">Заказать проект</button>
         </div>
     </div>
 </section>
@@ -245,21 +240,19 @@
                     <li><a href="tel:+79991234567">📞 +7 (999) 123-45-67</a></li>
                     <li><a href="mailto:info@sunrise.ru">✉️ info@sunrise.ru</a></li>
                     <li>📍 Уфа, ул. Строителей, 10</li>
-                    <li><button onclick="openModal()" style="background: none; border: none; color: #E65020; cursor: pointer; padding: 5px 0; font-weight: 500;">✍️ Написать нам</button></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <div>© 2026 Санрайз. Все права защищены.</div>
-            <div><a href="../../calculator/index.html" style="color: #E65020; text-decoration: none;">Калькулятор</a></div>
         </div>
     </div>
 </footer>
 
 <script src="https://unpkg.com/imask"></script>
 <script src="../../js/main.js"></script>
-<script src="../../js/carousel.js"></script>
 <script src="../../js/team.js"></script>
+<script src="../../js/carousel.js"></script>
 
 </body>
 </html>

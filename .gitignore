@@ -18,4 +18,4 @@ secrets.json
 
 # Временные файлы
 *.tmp
-*.temp
+*.temp!/images/team/4ce3a00f-2f48-4907-825d-c5a1a0c00dee.webp
