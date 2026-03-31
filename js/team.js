@@ -39,7 +39,7 @@ window.teamMembers = [
 ];
 
 // Первые 3 для карусели
-window.featuredTeam = window.teamMembers.slice(0, 3);
+window.featuredTeam = window.teamMembers;
 
 // Инициализация сетки для страницы team.html
 function initTeamGrid() {

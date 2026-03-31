@@ -11,208 +11,6 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="css/building.css">
-    <style>
-        /* Стили для модального окна проекта */
-        .project-modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 10000;
-            backdrop-filter: blur(8px);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .project-modal-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .project-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.9);
-            background: white;
-            border-radius: 50px;
-            z-index: 10001;
-            max-width: 900px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
-            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transition: all 0.3s;
-        }
-
-        .project-modal.active {
-            display: block;
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .project-modal-close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #999;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: white;
-            z-index: 10;
-            transition: all 0.3s;
-        }
-
-        .project-modal-close:hover {
-            background: #E65020;
-            color: white;
-        }
-
-        .project-modal-content {
-            padding: 0;
-        }
-
-        .project-modal-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 50px 50px 0 0;
-        }
-
-        .project-modal-info {
-            padding: 35px 40px;
-        }
-
-        .project-modal-title {
-            font-size: 2rem;
-            font-family: 'Playfair Display', serif;
-            color: #E65020;
-            margin-bottom: 15px;
-        }
-
-        .project-modal-location {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #666;
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-
-        .project-modal-features {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin: 20px 0;
-            padding: 20px 0;
-            border-top: 1px solid rgba(230,80,32,0.1);
-            border-bottom: 1px solid rgba(230,80,32,0.1);
-        }
-
-        .project-modal-feature {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 1rem;
-            color: #333;
-        }
-
-        .project-modal-feature span:first-child {
-            font-size: 1.3rem;
-        }
-
-        .project-modal-description {
-            color: #4a4a4a;
-            line-height: 1.7;
-            margin: 20px 0;
-            font-size: 1rem;
-        }
-
-        .project-modal-specs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 20px 0;
-        }
-
-        .project-modal-spec {
-            background: rgba(230, 80, 32, 0.1);
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            color: #E65020;
-            font-weight: 500;
-        }
-
-        .project-modal-price {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #E65020;
-            margin: 20px 0;
-        }
-
-        .project-modal-price small {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: #888;
-        }
-
-        .project-modal-btn {
-            background: linear-gradient(135deg, #E65020, #F3A119);
-            color: white;
-            border: none;
-            padding: 14px 35px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .project-modal-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(230, 80, 32, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .project-modal-image {
-                height: 250px;
-            }
-
-            .project-modal-info {
-                padding: 25px;
-            }
-
-            .project-modal-title {
-                font-size: 1.5rem;
-            }
-
-            .project-modal-features {
-                gap: 15px;
-            }
-
-            .project-modal-feature {
-                font-size: 0.85rem;
-            }
-
-            .project-modal-price {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -228,7 +26,6 @@
             <label class="form-label">Ваше имя *</label>
             <input type="text" class="form-input" id="name" placeholder="Как к вам обращаться?" required>
         </div>
-
         <div class="form-group">
             <label class="form-label">Телефон *</label>
             <input type="tel" class="form-input" id="phone" placeholder="+7 (___) ___-__-__" required>
@@ -237,16 +34,13 @@
             <label class="form-label">Сообщение</label>
             <textarea class="form-input" id="message" rows="4" placeholder="Опишите ваш вопрос или пожелания..."></textarea>
         </div>
-
         <div class="form-group">
             <label class="form-label" style="display: flex; align-items: center; gap: 10px;">
                 <input type="checkbox" id="agree" checked>
                 <span style="font-size: 0.9rem; color: #666;">Согласен на обработку персональных данных</span>
             </label>
         </div>
-
         <div class="form-status" id="formStatus"></div>
-
         <button type="submit" class="form-btn" id="submitBtn">
             <span>Получить расчет</span>
             <span class="btn-loader" style="display: none;">⏳</span>
@@ -254,13 +48,11 @@
     </form>
 </div>
 
-<!-- МОДАЛЬНОЕ ОКНО ПРОЕКТА (для подробной информации) -->
+<!-- МОДАЛЬНОЕ ОКНО ПРОЕКТА -->
 <div class="project-modal-overlay" id="projectModalOverlay" onclick="closeProjectModal()"></div>
 <div class="project-modal" id="projectModal">
     <div class="project-modal-close" onclick="closeProjectModal()">×</div>
-    <div class="project-modal-content" id="projectModalContent">
-        <!-- Контент будет загружаться динамически -->
-    </div>
+    <div id="projectModalContent"></div>
 </div>
 
 <!-- Мобильное меню -->
@@ -269,9 +61,9 @@
     <div class="mobile-nav-item">
         <a href="index.html" class="mobile-nav-link">Строительство домов</a>
         <div class="mobile-dropdown">
-            <a href="brick-houses.html" class="mobile-dropdown-item">Кирпичные дома</a>
-            <a href="frame-houses.html" class="mobile-dropdown-item">Каркасные дома</a>
-            <a href="turnkey.html" class="mobile-dropdown-item">Дома под ключ</a>
+            <a href="#" class="mobile-dropdown-item" data-category="one-story">Одноэтажные дома</a>
+            <a href="#" class="mobile-dropdown-item" data-category="frame">Каркасные дома</a>
+            <a href="#" class="mobile-dropdown-item" data-category="aerated">Дома из газобетона</a>
         </div>
     </div>
     <div class="mobile-nav-item">
@@ -296,7 +88,6 @@
             <a href="../about/contacts.html" class="mobile-dropdown-item">Контакты</a>
         </div>
     </div>
-
     <div class="mobile-contacts">
         <a href="tel:+79991234567" style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: #1E1E1E; text-decoration: none;">
             <span style="color: #E65020;">📞</span> +7 (999) 123-45-67
@@ -313,17 +104,16 @@
     <div class="container header-content">
         <div class="logo">
             <a href="../../index.html">
-                <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://via.placeholder.com/200x70/E65020/F3A119?text=САНРАЙЗ'">
+                <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://placehold.co/200x70/E65020/F3A119?text=САНРАЙЗ'">
             </a>
         </div>
-
         <ul class="nav-menu">
             <li class="nav-item active">
                 <a href="index.html" class="nav-link">Строительство домов</a>
                 <div class="dropdown">
-                    <a href="brick-houses.html" class="dropdown-item">Кирпичные дома</a>
-                    <a href="frame-houses.html" class="dropdown-item">Каркасные дома</a>
-                    <a href="turnkey.html" class="dropdown-item">Дома под ключ</a>
+                    <a href="#" class="dropdown-item" data-category="one-story">Одноэтажные дома</a>
+                    <a href="#" class="dropdown-item" data-category="frame">Каркасные дома</a>
+                    <a href="#" class="dropdown-item" data-category="aerated">Дома из газобетона</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -349,13 +139,11 @@
                 </div>
             </li>
         </ul>
-
         <div class="contacts-header">
             <a href="tel:+79991234567" class="contact-badge"><span>📞</span> +7 (999) 123-45-67</a>
             <a href="mailto:info@sunrise.ru" class="contact-badge"><span>✉️</span> info@sunrise.ru</a>
             <button onclick="openModal()" class="contact-btn">Бесплатный расчет</button>
         </div>
-
         <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
@@ -372,12 +160,33 @@
     </div>
 </section>
 
-<!-- ПРОЕКТЫ (КАРТОЧКИ С НАВЕДЕНИЕМ) -->
-<section class="projects-showcase">
+<!-- ВВОДНЫЙ ТЕКСТ -->
+<div class="container" id="introTextContainer">
+    <div class="intro-text">
+        <p>🏠 <strong>Санрайз</strong> — строительная компания с 24-летним опытом работы. Строим дома любой сложности: от небольших дачных домиков до просторных коттеджей.</p>
+        <p>🔨 Используем современные материалы и технологии: газобетон, каркасное строительство по канадской технологии. Каждый проект адаптируем под ваш участок.</p>
+        <p>✨ Работаем по всей Московской области и Республике Башкортостан. Гарантия на все работы — 10 лет. Строительство под ключ: от фундамента до финишной отделки.</p>
+    </div>
+</div>
+
+<!-- КАТЕГОРИИ ДОМОВ -->
+<section class="categories-section" id="categoriesSection">
     <div class="container">
-        <div class="projects-grid-custom" id="projectsGrid">
-            <!-- Проекты будут загружены через JavaScript -->
+        <div class="section-header">
+            <h2>Выберите тип дома</h2>
+            <p>Готовые проекты и возможность индивидуального проектирования</p>
         </div>
+        <div class="categories-grid" id="categoriesGrid"></div>
+    </div>
+</section>
+
+<!-- СТРАНИЦА КАТЕГОРИИ (скрыта по умолчанию) -->
+<section class="projects-showcase" id="categoryPage" style="display: none;">
+    <div class="container">
+        <button class="back-button" id="backToCategoriesBtn">← Вернуться ко всем категориям</button>
+        <h2 class="category-title-page" id="categoryTitle"></h2>
+        <p class="category-desc-page" id="categoryDescription"></p>
+        <div class="projects-grid-custom" id="projectsGrid"></div>
     </div>
 </section>
 
@@ -387,7 +196,7 @@
         <div class="stats-grid">
             <div class="stat-block-custom">
                 <div class="stat-number-custom">24+</div>
-                <div class="stat-label-custom">лет опыта на рынке</div>
+                <div class="stat-label-custom">лет опыта</div>
             </div>
             <div class="stat-block-custom">
                 <div class="stat-number-custom">1000+</div>
@@ -395,11 +204,11 @@
             </div>
             <div class="stat-block-custom">
                 <div class="stat-number-custom">10 лет</div>
-                <div class="stat-label-custom">гарантии на все работы</div>
+                <div class="stat-label-custom">гарантии</div>
             </div>
             <div class="stat-block-custom">
                 <div class="stat-number-custom">28%</div>
-                <div class="stat-label-custom">экономия по рекомендации</div>
+                <div class="stat-label-custom">экономия</div>
             </div>
         </div>
     </div>
@@ -417,9 +226,9 @@
         <div class="footer-content">
             <div class="footer-col">
                 <div class="footer-logo">
-                    <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://via.placeholder.com/200x70/E65020/F3A119?text=САНРАЙЗ'">
+                    <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://placehold.co/200x70/E65020/F3A119?text=САНРАЙЗ'">
                 </div>
-                <p>Строительство и ремонт с душой. Работаем в Башкортостане с 2012 года.</p>
+                <p>Строительство и ремонт с душой. Работаем с 2012 года.</p>
                 <button onclick="openModal()" class="contact-btn" style="margin-top: 15px;">Бесплатный расчет</button>
             </div>
             <div class="footer-col">
@@ -434,9 +243,9 @@
             <div class="footer-col">
                 <h4>Услуги</h4>
                 <ul>
-                    <li><a href="brick-houses.html">Кирпичные дома</a></li>
-                    <li><a href="frame-houses.html">Каркасные дома</a></li>
-                    <li><a href="turnkey.html">Дома под ключ</a></li>
+                    <li><a href="#" data-category="one-story">Одноэтажные дома</a></li>
+                    <li><a href="#" data-category="frame">Каркасные дома</a></li>
+                    <li><a href="#" data-category="aerated">Дома из газобетона</a></li>
                     <li><a href="../renovation/design-project.html">Дизайн проекты</a></li>
                 </ul>
             </div>
@@ -457,313 +266,9 @@
     </div>
 </footer>
 
+<!-- Скрипты -->
 <script src="https://unpkg.com/imask"></script>
-<script>
-    // Маска для телефона
-    document.addEventListener('DOMContentLoaded', function() {
-        const phoneInput = document.getElementById('phone');
-        if (phoneInput && typeof IMask !== 'undefined') {
-            IMask(phoneInput, {
-                mask: '+{7} (000) 000-00-00'
-            });
-        }
-    });
-
-    // Данные проектов (реальные проекты из скриншотов)
-    const projectsData = [
-        {
-            id: 1,
-            name: "Дом вашей мечты с гарантией качества!",
-            location: "Московская область",
-            area: "от 100 до 300 м²",
-            bedrooms: "3-5 спален",
-            floors: "1-2 этажа",
-            image: "https://placehold.co/800x500/E65020/FFFFFF?text=БЕЛХАУС+Дом+мечты",
-            badge: "Гарантия 10 лет",
-            fullDescription: "Строительно-производственная компания, основанная в 2001 году. Мы строим каркасные дома заводского изготовления по технологии Mitel и дома из газобетонных блоков в Московской области. Домокомплект производится по канадской технологии Mitel на нашем заводе в Минске. Нагрузки рассчитываются с помощью специализированного программного обеспечения, силовой каркас собирается на автоматизированных станках. На нашем высокотехнологичном производстве внедрена система контроля качества, соответствующая мировым стандартам. Строим дома \"под ключ\" – от фундамента до отделки. Гарантия 10 лет. Прозрачные цены, фиксированные сроки.",
-            specs: ["Mitel технология", "Газобетон", "Каркасные дома", "Под ключ", "Гарантия 10 лет"],
-            price: "от 45 000 ₽/м²"
-        },
-        {
-            id: 2,
-            name: "Каркасные дома по канадской технологии",
-            location: "Московская область",
-            area: "80-250 м²",
-            bedrooms: "2-4 спальни",
-            floors: "1-2 этажа",
-            image: "https://placehold.co/800x500/F3A119/FFFFFF?text=Каркасные+дома",
-            badge: "Канадская технология",
-            fullDescription: "Каркасные дома заводского изготовления по технологии Mitel. Быстровозводимые и теплые конструкции. Подходят для круглогодичного проживания. Также строим кафе, рестораны из каркаса и бани из каркаса. Силовой каркас собирается на автоматизированных станках с высокой точностью, что гарантирует надежность и долговечность.",
-            specs: ["Канадская технология", "Энергоэффективность", "Быстрый монтаж", "Бани из каркаса", "Круглогодичное проживание"],
-            price: "от 35 000 ₽/м²"
-        },
-        {
-            id: 3,
-            name: "Дома из газобетона",
-            location: "Московская область",
-            area: "120-350 м²",
-            bedrooms: "3-5 спален",
-            floors: "1-2 этажа",
-            image: "https://placehold.co/800x500/4A90E2/FFFFFF?text=Газобетонные+дома",
-            badge: "Энергоэффективный",
-            fullDescription: "Надежные дома из газобетонных блоков. Отличная теплоизоляция, экологичность и долговечность. Газобетон позволяет создавать комфортный микроклимат в доме, сохраняя тепло зимой и прохладу летом. Готовые комплекты для быстрого строительства. Возможна отделка любыми материалами.",
-            specs: ["Газобетон", "Теплоизоляция", "Экологичность", "Долговечность", "Паропроницаемость"],
-            price: "от 42 000 ₽/м²"
-        },
-        {
-            id: 4,
-            name: "Собственное производство",
-            location: "Завод в Минске",
-            area: "Любая площадь",
-            bedrooms: "По проекту",
-            floors: "1-3 этажа",
-            image: "https://placehold.co/800x500/50C878/FFFFFF?text=Собственное+производство",
-            badge: "Заводское качество",
-            fullDescription: "Изготавливаем домокомплекты на собственном заводе в городе Минск. Полный контроль качества на всех этапах производства. Силовой каркас по технологии Mitek. Использование металлозубчатых ферм позволяет достичь надежности каменного дома. На заводе внедрена система контроля качества, соответствующая мировым стандартам.",
-            specs: ["Собственный завод", "Mitek технология", "Контроль качества", "Точная геометрия", "Автоматизированное производство"],
-            price: "индивидуальный расчет"
-        },
-        {
-            id: 5,
-            name: "Технический надзор и гарантия",
-            location: "На всех объектах",
-            area: "Любая",
-            bedrooms: "По проекту",
-            floors: "По проекту",
-            image: "https://placehold.co/800x500/D2691E/FFFFFF?text=Технический+надзор",
-            badge: "Строгий контроль",
-            fullDescription: "Строгий контроль на каждом этапе строительства. Прозрачный договор и гарантия 10 лет. Фиксированные сроки строительства и стоимость работ по договору. Технический надзор осуществляют опытные специалисты, которые следят за соблюдением технологий и качеством материалов.",
-            specs: ["Технический надзор", "Гарантия 10 лет", "Прозрачный договор", "Фиксированные сроки", "Контроль качества"],
-            price: "включено в стоимость"
-        },
-        {
-            id: 6,
-            name: "Индивидуальное проектирование",
-            location: "Под ваш участок",
-            area: "Любая",
-            bedrooms: "По желанию",
-            floors: "1-3 этажа",
-            image: "https://placehold.co/800x500/8B4513/FFFFFF?text=Индивидуальные+проекты",
-            badge: "В подарок",
-            fullDescription: "Наши архитекторы создадут проект дома под ваши запросы. Индивидуальный подход, учет всех пожеланий и особенностей участка. Два выставочных дома ждут вас в гости на выставке «Малогабаритная Страна» в Коптельвихах и Алтуфьево. Вы сможете увидеть качество строительства своими руками.",
-            specs: ["Индивидуальный проект", "Архитектор", "3D визуализация", "Выставочные дома", "Адаптация под участок"],
-            price: "проект в подарок"
-        }
-    ];
-
-    function loadProjects() {
-        const grid = document.getElementById('projectsGrid');
-        if (!grid) return;
-
-        projectsData.forEach((project) => {
-            const card = document.createElement('div');
-            card.className = 'project-card-custom';
-            card.style.cursor = 'pointer';
-            card.onclick = () => openProjectModal(project.id);
-
-            card.innerHTML = `
-                <div class="project-image">
-                    <img src="${project.image}" alt="${project.name}" onerror="this.parentElement.innerHTML='<div class=\'image-placeholder\'>🏠</div>'">
-                    <div class="project-badges">
-                        <span class="project-badge">${project.badge}</span>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3 class="project-name">${project.name}</h3>
-                    <div class="project-location">
-                        <span>📍</span> ${project.location}
-                    </div>
-                    <div class="project-features">
-                        <div class="project-feature">
-                            <span>📐</span> ${project.area}
-                        </div>
-                        <div class="project-feature">
-                            <span>🛏️</span> ${project.bedrooms}
-                        </div>
-                        <div class="project-feature">
-                            <span>🏠</span> ${project.floors}
-                        </div>
-                    </div>
-                </div>
-                <div class="project-hover">
-                    <div class="project-description">
-                        ${project.fullDescription.substring(0, 120)}...
-                    </div>
-                    <div class="project-specs">
-                        ${project.specs.slice(0, 4).map(spec => `<span class="project-spec">${spec}</span>`).join('')}
-                    </div>
-                    <div class="project-price">
-                        ${project.price}
-                        <small>под ключ</small>
-                    </div>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
-    }
-
-    function openProjectModal(projectId) {
-        const project = projectsData.find(p => p.id === projectId);
-        if (!project) return;
-
-        const modalContent = document.getElementById('projectModalContent');
-        modalContent.innerHTML = `
-            <img class="project-modal-image" src="${project.image}" alt="${project.name}" onerror="this.src='https://placehold.co/800x500/E65020/FFFFFF?text=${encodeURIComponent(project.name)}'">
-            <div class="project-modal-info">
-                <h2 class="project-modal-title">${project.name}</h2>
-                <div class="project-modal-location">
-                    <span>📍</span> ${project.location}
-                </div>
-                <div class="project-modal-features">
-                    <div class="project-modal-feature">
-                        <span>📐</span> Площадь: ${project.area}
-                    </div>
-                    <div class="project-modal-feature">
-                        <span>🛏️</span> ${project.bedrooms}
-                    </div>
-                    <div class="project-modal-feature">
-                        <span>🏠</span> ${project.floors}
-                    </div>
-                </div>
-                <div class="project-modal-description">
-                    ${project.fullDescription}
-                </div>
-                <div class="project-modal-specs">
-                    ${project.specs.map(spec => `<span class="project-modal-spec">${spec}</span>`).join('')}
-                </div>
-                <div class="project-modal-price">
-                    ${project.price}
-                    <small>под ключ</small>
-                </div>
-                <button class="project-modal-btn" onclick="openModalFromProject(); closeProjectModal();">Получить консультацию</button>
-            </div>
-        `;
-
-        document.getElementById('projectModalOverlay').classList.add('active');
-        document.getElementById('projectModal').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeProjectModal() {
-        document.getElementById('projectModalOverlay').classList.remove('active');
-        document.getElementById('projectModal').classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    function openModalFromProject() {
-        openModal();
-    }
-
-    function openModal() {
-        const modalOverlay = document.getElementById('modalOverlay');
-        const contactModal = document.getElementById('contactModal');
-        if (modalOverlay && contactModal) {
-            modalOverlay.classList.add('active');
-            contactModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    }
-
-    function closeModal() {
-        const modalOverlay = document.getElementById('modalOverlay');
-        const contactModal = document.getElementById('contactModal');
-        if (modalOverlay) modalOverlay.classList.remove('active');
-        if (contactModal) contactModal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    function toggleMobileMenu() {
-        const menu = document.getElementById('mobileMenu');
-        if (menu) {
-            menu.classList.toggle('active');
-            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
-        }
-    }
-
-    async function sendForm(event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const message = document.getElementById('message').value.trim();
-        const agree = document.getElementById('agree').checked;
-        const statusDiv = document.getElementById('formStatus');
-        const submitBtn = document.getElementById('submitBtn');
-        const loader = submitBtn.querySelector('.btn-loader');
-        const btnText = submitBtn.querySelector('span:first-child');
-
-        if (!name) {
-            statusDiv.className = 'form-status error';
-            statusDiv.textContent = '✗ Введите ваше имя';
-            statusDiv.style.display = 'block';
-            setTimeout(() => statusDiv.style.display = 'none', 3000);
-            return;
-        }
-        if (!phone || phone.includes('_')) {
-            statusDiv.className = 'form-status error';
-            statusDiv.textContent = '✗ Введите корректный номер телефона';
-            statusDiv.style.display = 'block';
-            setTimeout(() => statusDiv.style.display = 'none', 3000);
-            return;
-        }
-        if (!agree) {
-            statusDiv.className = 'form-status error';
-            statusDiv.textContent = '✗ Необходимо согласие на обработку данных';
-            statusDiv.style.display = 'block';
-            setTimeout(() => statusDiv.style.display = 'none', 3000);
-            return;
-        }
-
-        statusDiv.style.display = 'none';
-        submitBtn.disabled = true;
-        loader.style.display = 'inline';
-        btnText.style.opacity = '0.7';
-
-        try {
-            // Здесь подключите ваш Python сервер
-            // const SERVER_URL = 'http://localhost:5001/send_message';
-            // const response = await fetch(SERVER_URL, {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ name, phone, message })
-            // });
-
-            await new Promise(resolve => setTimeout(resolve, 1000));
-
-            statusDiv.className = 'form-status success';
-            statusDiv.textContent = '✓ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
-            statusDiv.style.display = 'block';
-            document.getElementById('name').value = '';
-            document.getElementById('phone').value = '';
-            document.getElementById('message').value = '';
-            setTimeout(() => {
-                closeModal();
-                statusDiv.style.display = 'none';
-            }, 3000);
-        } catch (error) {
-            statusDiv.className = 'form-status error';
-            statusDiv.textContent = '✗ Ошибка отправки. Попробуйте позже.';
-            statusDiv.style.display = 'block';
-        } finally {
-            submitBtn.disabled = false;
-            loader.style.display = 'none';
-            btnText.style.opacity = '1';
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', loadProjects);
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeModal();
-            closeProjectModal();
-        }
-    });
-
-    document.querySelectorAll('.mobile-dropdown-item, .mobile-nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            document.getElementById('mobileMenu')?.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
-</script>
+<script src="data/categories.js"></script>
+<script src="js/building.js"></script>
 </body>
 </html>
