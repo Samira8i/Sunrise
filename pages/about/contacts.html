@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наша команда | Санрайз</title>
+    <title>Контакты | Санрайз</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -72,8 +72,8 @@
         <a href="../prices/index.html" class="mobile-nav-link">Цены</a>
     </div>
     <div class="mobile-nav-item">
-        <div class="mobile-nav-link active" onclick="toggleMobileDropdown(this)">О компании</div>
-        <div class="mobile-dropdown active">
+        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">О компании</div>
+        <div class="mobile-dropdown">
             <a href="team.html" class="mobile-dropdown-item">Наша команда</a>
             <a href="contacts.html" class="mobile-dropdown-item">Контакты</a>
         </div>
@@ -119,8 +119,8 @@
             <li class="nav-item dropdown-right">
                 <a href="index.html" class="nav-link">О компании</a>
                 <div class="dropdown dropdown-align-right">
-                    <a href="team.html" class="dropdown-item active">Наша команда</a>
-                    <a href="contacts.html" class="dropdown-item">Контакты</a>
+                    <a href="team.html" class="dropdown-item">Наша команда</a>
+                    <a href="contacts.html" class="dropdown-item active">Контакты</a>
                 </div>
             </li>
         </ul>
@@ -137,19 +137,78 @@
 </header>
 
 <!-- ГЕРОЙ -->
-<section class="team-page-hero">
+<section class="contacts-page-hero">
     <div class="container">
-        <h1 class="team-page-title"><span>Наша</span> команда</h1>
-        <p class="team-page-subtitle">Профессионалы, которые создают ваш идеальный дом. Опыт, ответственность и любовь к своему делу.</p>
+        <h1 class="contacts-page-title"><span>Наши</span> контакты</h1>
+        <p class="contacts-page-subtitle">Свяжитесь с нами удобным для вас способом. Мы всегда на связи!</p>
     </div>
 </section>
 
-<!-- СЕТКА СОТРУДНИКОВ -->
+<!-- КОНТАКТЫ -->
 <section class="section">
     <div class="container">
-        <div id="teamGrid" class="team-grid-full"></div>
+        <div class="contacts-grid">
+            <!-- Телефон -->
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <h3>Телефон</h3>
+                <a href="tel:+79991234567" class="contact-link">+7 (999) 123-45-67</a>
+                <p>Ежедневно с 9:00 до 19:00</p>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3>Email</h3>
+                <a href="mailto:info@sunrise.ru" class="contact-link">info@sunrise.ru</a>
+                <p>Ответим в течение 24 часов</p>
+            </div>
+
+            <!-- Адрес -->
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h3>Адрес офиса</h3>
+                <p class="contact-address">г. Уфа, ул. Строителей, д. 10</p>
+                <p>Пн-Пт: 9:00-19:00</p>
+            </div>
+
+            <!-- Instagram -->
+            <div class="contact-card">
+                <div class="contact-icon">📷</div>
+                <h3>Instagram</h3>
+                <a href="https://www.instagram.com/p/DWgfuftjEXL/?igsh=bDZ6dmx3M2tqdzN3" target="_blank" rel="noopener noreferrer" class="contact-link social-link">
+                    @sunrise_building
+                </a>
+                <p>Наши работы и процессы</p>
+            </div>
+
+            <!-- ВКонтакте -->
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <h3>ВКонтакте</h3>
+                <a href="https://vk.ru/wall-212836881_11" target="_blank" rel="noopener noreferrer" class="contact-link social-link">
+                    vk.com/sunrise_building
+                </a>
+                <p>Актуальные новости</p>
+            </div>
+        </div>
+
+        <!-- Карта -->
+        <div class="map-container">
+            <h3 class="map-title">Как нас найти</h3>
+            <div class="map-wrapper">
+                <iframe
+                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&source=constructor"
+                        width="100%"
+                        height="400"
+                        frameborder="0"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
         <div style="text-align: center; margin-top: 40px;">
-            <button onclick="openModal()" class="contact-btn" style="padding: 14px 35px; font-size: 1rem;">Заказать проект</button>
+            <button onclick="openModal()" class="contact-btn" style="padding: 14px 35px; font-size: 1rem;">Бесплатная консультация</button>
         </div>
     </div>
 </section>
@@ -209,6 +268,6 @@
 
 <script src="https://unpkg.com/imask"></script>
 <script src="../../js/main.js"></script>
-<script src="js/team.js"></script>
+<script src="js/about.js"></script>
 </body>
 </html>

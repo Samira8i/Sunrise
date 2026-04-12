@@ -129,10 +129,6 @@ h2::after {
     position: relative;
 }
 
-.nav-item.dropdown-right {
-    position: relative;
-}
-
 .nav-link {
     text-decoration: none;
     color: #1E1E1E;
@@ -236,7 +232,6 @@ h2::after {
     border: 1px solid rgba(230, 80, 32, 0.15);
     font-weight: 500;
     font-size: 0.85rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     transition: all 0.3s;
     text-decoration: none;
     color: #1E1E1E;
@@ -327,6 +322,7 @@ h2::after {
     margin-bottom: 12px;
     position: relative;
     padding-right: 20px;
+    cursor: pointer;
 }
 
 .mobile-nav-link::after {
@@ -373,9 +369,21 @@ h2::after {
     margin-top: 30px;
     padding-top: 20px;
     border-top: 2px solid rgba(230, 80, 32, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-/* ========== ГЕРОЙ ========== */
+.mobile-contacts a {
+    color: #1E1E1E;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.mobile-contacts a:hover {
+    color: #E65020;
+}
+
 /* ========== ГЕРОЙ ========== */
 .hero {
     padding: 60px 0 40px 0;
@@ -485,36 +493,12 @@ h2::after {
     font-size: 0.95rem;
 }
 
+/* Точки карусели скрыты */
 .carousel-dots {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    display: none !important;
-    justify-content: center;
-    gap: 12px;
-    z-index: 5;
+    display: none;
 }
 
-.carousel-dot {
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.carousel-dot:hover {
-    background: rgba(255, 255, 255, 0.9);
-}
-
-.carousel-dot.active {
-    background: #E65020;
-    transform: scale(1.2);
-}
-
-/* ========== СТАТИСТИКА (на всю ширину) ========== */
+/* ========== СТАТИСТИКА ========== */
 .hero-stats-full {
     width: 100%;
     background: linear-gradient(135deg, rgba(230, 80, 32, 0.03), rgba(243, 161, 25, 0.03));
@@ -587,10 +571,11 @@ h2::after {
     }
 }
 
+/* ========== ПРЕИМУЩЕСТВА (УБРАНЫ НЕНУЖНЫЕ КАРТОЧКИ, ОСТАВЛЕНЫ ТОЛЬКО 2) ========== */
 /* ========== ПРЕИМУЩЕСТВА ========== */
 .advantages-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -643,15 +628,10 @@ h2::after {
     opacity: 1;
 }
 
-.advantage-icon {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
 .service-card h3 {
     font-size: 1.3rem;
     margin-bottom: 10px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .service-card p {
@@ -731,6 +711,15 @@ h2::after {
     border-color: #E65020;
 }
 
+/* Блок сложности - может быть скрыт */
+.complexity-group {
+    transition: all 0.3s ease;
+}
+
+.complexity-group.hidden {
+    display: none;
+}
+
 .calc-range {
     width: 100%;
     height: 6px;
@@ -797,11 +786,6 @@ h2::after {
     margin-top: 50px;
 }
 
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
 .service-price {
     font-size: 1.8rem;
     font-weight: 700;
@@ -817,7 +801,6 @@ h2::after {
     border-radius: 60px 60px 0 0;
     margin-top: 80px;
     position: relative;
-    box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.02);
     border-top: 1px solid rgba(230, 80, 32, 0.1);
 }
 
@@ -893,6 +876,20 @@ h2::after {
 .footer-col ul li a:hover {
     color: #E65020;
     padding-left: 8px;
+}
+
+.footer-contact-btn {
+    background: none;
+    border: none;
+    color: #E65020;
+    cursor: pointer;
+    padding: 5px 0;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.footer-contact-btn:hover {
+    color: #F3A119;
 }
 
 .footer-bottom {
@@ -979,7 +976,7 @@ h2::after {
     margin-bottom: 30px;
     color: #E65020;
     text-align: center;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .form-group {
@@ -1007,11 +1004,6 @@ h2::after {
     outline: none;
     border-color: #E65020;
     box-shadow: 0 0 0 3px rgba(230, 80, 32, 0.1);
-}
-
-.form-input.error {
-    border-color: #ff3333;
-    background: #fff0f0;
 }
 
 textarea.form-input {
@@ -1189,17 +1181,5 @@ textarea.form-input {
 
     .mobile-menu-toggle {
         margin-left: auto;
-    }
-
-    .hero-stats {
-        gap: 20px;
-    }
-
-    .stat-number {
-        font-size: 2rem;
-    }
-
-    .stat-label {
-        font-size: 0.75rem;
     }
 }

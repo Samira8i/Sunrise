@@ -11,7 +11,7 @@
 .building-title {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
 }
 
@@ -64,7 +64,7 @@
 
 .section-header h2 {
     font-size: 2.2rem;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
     color: #1E1E1E;
     margin-bottom: 15px;
@@ -146,7 +146,7 @@
 
 .category-title {
     font-size: 1.5rem;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
     color: #1E1E1E;
     margin-bottom: 10px;
@@ -211,7 +211,7 @@
 
 .category-title-page {
     font-size: 2.2rem;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
     color: #1E1E1E;
     margin-bottom: 10px;
@@ -315,7 +315,7 @@
 
 .project-name {
     font-size: 1.5rem;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
     color: #1E1E1E;
     margin-bottom: 8px;

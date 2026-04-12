@@ -1,7 +1,7 @@
 // Данные для карусели проектов
 const projectsData = [
-    { image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=500&fit=crop", caption: "Коттедж в ЖК «Солнечный», 210 м²" },
-    { image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=500&fit=crop", caption: "Дизайн-проект гостиной, 45 м²" },
+    { image: "images/1.png", caption: "Коттедж в ЖК «Солнечный», 210 м²" },
+    { image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=500&fit=crop", caption: "Ремонт квартиры в Казани" },
     { image: "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&h=500&fit=crop", caption: "Ремонт квартиры в ЖК «Восход», 78 м²" },
     { image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=500&fit=crop", caption: "Строительство дома из газобетона, 150 м²" }
 ];
@@ -9,14 +9,12 @@ const projectsData = [
 let currentSlide = 0;
 let slideInterval;
 
+// ========== КАРУСЕЛЬ ==========
 function initHeroCarousel() {
     const slidesContainer = document.getElementById('heroCarouselSlides');
-    const dotsContainer = document.getElementById('heroCarouselDots');
-
     if (!slidesContainer) return;
 
     slidesContainer.innerHTML = '';
-    dotsContainer.innerHTML = '';
 
     projectsData.forEach((project, index) => {
         const slide = document.createElement('div');
@@ -30,12 +28,6 @@ function initHeroCarousel() {
         slide.appendChild(caption);
 
         slidesContainer.appendChild(slide);
-
-        const dot = document.createElement('div');
-        dot.className = 'carousel-dot';
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(index));
-        dotsContainer.appendChild(dot);
     });
 
     startAutoPlay();
@@ -43,8 +35,6 @@ function initHeroCarousel() {
 
 function updateCarousel() {
     const slides = document.querySelectorAll('#heroCarouselSlides .carousel-slide');
-    const dots = document.querySelectorAll('#heroCarouselDots .carousel-dot');
-
     slides.forEach((slide, index) => {
         if (index === currentSlide) {
             slide.classList.add('active');
@@ -52,20 +42,6 @@ function updateCarousel() {
             slide.classList.remove('active');
         }
     });
-
-    dots.forEach((dot, index) => {
-        if (index === currentSlide) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
-    });
-}
-
-function goToSlide(index) {
-    currentSlide = index;
-    updateCarousel();
-    resetAutoPlay();
 }
 
 function nextSlide() {
@@ -78,12 +54,7 @@ function startAutoPlay() {
     slideInterval = setInterval(nextSlide, 3000);
 }
 
-function resetAutoPlay() {
-    if (slideInterval) clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 3000);
-}
-
-// ========== МОБИЛЬНОЕ МЕНЮ (ИСПРАВЛЕНО) ==========
+// ========== МОБИЛЬНОЕ МЕНЮ ==========
 function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
     if (!menu) return;
@@ -100,7 +71,6 @@ function toggleMobileDropdown(element) {
     dropdown.classList.toggle('active');
 }
 
-// Закрытие меню при клике на любую ссылку
 function closeMobileMenu() {
     const menu = document.getElementById('mobileMenu');
     if (menu) {
@@ -161,10 +131,9 @@ async function sendForm(event) {
     if (btnText) btnText.style.opacity = '0.7';
 
     try {
-        // TODO: Заменить на реальный URL после деплоя Worker
+        // TODO: Заменить на реальный URL после деплоя
         const SERVER_URL = 'https://sunrise-bot.ваш-аккаунт.workers.dev';
 
-        // Пока используем тестовый режим (просто имитируем отправку)
         if (SERVER_URL.includes('ваш-аккаунт')) {
             await new Promise(resolve => setTimeout(resolve, 1000));
             showSuccess('✓ Заявка отправлена! Мы свяжемся с вами.');
@@ -175,9 +144,7 @@ async function sendForm(event) {
 
         const response = await fetch(SERVER_URL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, phone, message })
         });
 
@@ -228,19 +195,50 @@ function clearForm() {
     if (messageInput) messageInput.value = '';
 }
 
-// ========== КАЛЬКУЛЯТОР ==========
+// ========== КАЛЬКУЛЯТОР (ОБНОВЛЕННЫЙ) ==========
+// Цены за м²:
+// - Строительство дома: 35 000 ₽/м² (без сложности)
+// - Ремонт: косметический 7 000, капитальный 14 000, дизайнерский 18 000
+
 function calculatePrice() {
     const areaRange = document.getElementById('areaRange');
     const area = areaRange ? parseInt(areaRange.value) : 100;
-    let type = document.querySelector('.calc-option.active[data-type]')?.getAttribute('data-type') || 'building';
-    let complexity = document.querySelector('.calc-option.active[data-complexity]')?.getAttribute('data-complexity') || 'capital';
 
-    let basePrice = type === 'building' ? 45000 : 9900;
-    let complexityMultiplier = complexity === 'cosmetic' ? 0.7 : complexity === 'premium' ? 1.5 : 1;
-    let total = area * basePrice * complexityMultiplier;
+    let typeElement = document.querySelector('.calc-option.active[data-type]');
+    let type = typeElement ? typeElement.getAttribute('data-type') : 'building';
 
-    const totalPrice = document.getElementById('totalPrice');
-    if (totalPrice) totalPrice.textContent = Math.round(total).toLocaleString('ru-RU') + ' ₽';
+    let total = 0;
+    let prefix = 'от ';
+
+    if (type === 'building') {
+        // Строительство дома: 35 000 за м²
+        total = area * 35000;
+    } else {
+        // Ремонт: в зависимости от сложности
+        let complexityElement = document.querySelector('.calc-option.active[data-complexity]');
+        let complexity = complexityElement ? complexityElement.getAttribute('data-complexity') : 'capital';
+
+        let pricePerM2 = 0;
+        switch (complexity) {
+            case 'cosmetic':
+                pricePerM2 = 7000;
+                break;
+            case 'capital':
+                pricePerM2 = 14000;
+                break;
+            case 'designer':
+                pricePerM2 = 18000;
+                break;
+            default:
+                pricePerM2 = 14000;
+        }
+        total = area * pricePerM2;
+    }
+
+    const totalPriceElement = document.getElementById('totalPrice');
+    if (totalPriceElement) {
+        totalPriceElement.textContent = prefix + Math.round(total).toLocaleString('ru-RU') + ' ₽';
+    }
 }
 
 function updateArea(value) {
@@ -249,21 +247,36 @@ function updateArea(value) {
     calculatePrice();
 }
 
+// Управление видимостью блока сложности
+function toggleComplexityVisibility() {
+    const typeElement = document.querySelector('.calc-option.active[data-type]');
+    const type = typeElement ? typeElement.getAttribute('data-type') : 'building';
+    const complexityGroup = document.getElementById('complexityGroup');
+
+    if (type === 'building') {
+        // Строительство дома - скрываем выбор сложности
+        if (complexityGroup) complexityGroup.classList.add('hidden');
+    } else {
+        // Ремонт - показываем выбор сложности
+        if (complexityGroup) complexityGroup.classList.remove('hidden');
+    }
+    calculatePrice();
+}
+
 function calculateAndRedirect() {
     const areaRange = document.getElementById('areaRange');
     const area = areaRange ? areaRange.value : 100;
     let typeElement = document.querySelector('.calc-option.active[data-type]');
     let type = typeElement ? typeElement.textContent : 'Строительство дома';
-    let complexityElement = document.querySelector('.calc-option.active[data-complexity]');
-    let complexity = complexityElement ? complexityElement.textContent : 'Капитальный';
-    let price = document.getElementById('totalPrice')?.textContent || '0 ₽';
 
-    const calcData = {
-        type: type,
-        area: area,
-        complexity: complexity,
-        price: price
-    };
+    let complexity = '';
+    if (typeElement && typeElement.getAttribute('data-type') !== 'building') {
+        let complexityElement = document.querySelector('.calc-option.active[data-complexity]');
+        complexity = complexityElement ? complexityElement.textContent : 'Капитальный';
+    }
+
+    let price = document.getElementById('totalPrice')?.textContent || '0 ₽';
+    const calcData = { type, area, complexity, price };
     localStorage.setItem('calculatorData', JSON.stringify(calcData));
     openModal();
 }
@@ -276,8 +289,20 @@ function initCalculator() {
         });
     }
 
-    const options = document.querySelectorAll('.calc-option');
-    options.forEach(option => {
+    // Обработка кликов по типу работ
+    const typeOptions = document.querySelectorAll('.calc-option[data-type]');
+    typeOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Убираем active у всех опций типа
+            typeOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            toggleComplexityVisibility();
+        });
+    });
+
+    // Обработка кликов по сложности
+    const complexityOptions = document.querySelectorAll('.calc-option[data-complexity]');
+    complexityOptions.forEach(option => {
         option.addEventListener('click', function() {
             const parent = this.parentElement;
             const siblings = parent.querySelectorAll('.calc-option');
@@ -292,6 +317,8 @@ function initCalculator() {
         calculateBtn.addEventListener('click', calculateAndRedirect);
     }
 
+    // Начальная настройка видимости
+    toggleComplexityVisibility();
     calculatePrice();
 }
 
@@ -307,8 +334,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Закрытие меню при клике на ссылки в мобильном меню
-    document.querySelectorAll('.mobile-dropdown-item').forEach(link => {
+    // Закрытие меню при клике на ссылки
+    document.querySelectorAll('.mobile-dropdown-item, .mobile-nav-link').forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
 });

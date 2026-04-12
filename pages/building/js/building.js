@@ -107,7 +107,7 @@ function openProjectModal(project) {
         <div style="position: relative;">
             <img src="${project.image}" alt="${project.name}" style="width: 100%; height: 300px; object-fit: cover; border-radius: 50px 50px 0 0;" onerror="this.src='https://placehold.co/800x500/E65020/FFFFFF?text=${encodeURIComponent(project.name)}'">
             <div style="padding: 30px;">
-                <h2 style="font-size: 1.8rem; font-family: 'Playfair Display', serif; color: #E65020; margin-bottom: 15px;">${project.name}</h2>
+                <h2 style="font-size: 1.8rem; font-family:'Inter', sans-serif; color: #E65020; margin-bottom: 15px;">${project.name}</h2>
                 <div style="display: flex; gap: 20px; flex-wrap: wrap; margin: 15px 0; padding: 15px 0; border-top: 1px solid rgba(230,80,32,0.1); border-bottom: 1px solid rgba(230,80,32,0.1);">
                     <div style="display: flex; align-items: center; gap: 8px;"><span>📐</span> ${project.area}</div>
                     <div style="display: flex; align-items: center; gap: 8px;"><span>🛏️</span> ${project.bedrooms}</div>

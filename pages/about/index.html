@@ -6,9 +6,9 @@
     <title>О компании | Санрайз</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/about.css">
+    <link rel="stylesheet" href="css/about.css">
 </head>
 <body>
 
@@ -46,9 +46,6 @@
     </form>
 </div>
 
-<!-- Оверлей для мобильного меню -->
-<div class="overlay" id="overlay" onclick="toggleMobileMenu()"></div>
-
 <!-- Мобильное меню -->
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-close" onclick="toggleMobileMenu()">×</div>
@@ -69,22 +66,21 @@
         </div>
     </div>
     <div class="mobile-nav-item">
-        <a href="../portfolio/index.html" class="mobile-nav-link" style="pointer-events: none;">Портфолио</a>
+        <a href="../portfolio/index.html" class="mobile-nav-link">Портфолио</a>
     </div>
     <div class="mobile-nav-item">
-        <a href="../prices/index.html" class="mobile-nav-link" style="pointer-events: none;">Цены</a>
+        <a href="../prices/index.html" class="mobile-nav-link">Цены</a>
     </div>
     <div class="mobile-nav-item">
         <div class="mobile-nav-link active" onclick="toggleMobileDropdown(this)">О компании</div>
         <div class="mobile-dropdown active">
             <a href="team.html" class="mobile-dropdown-item">Наша команда</a>
-            <a href="reviews.html" class="mobile-dropdown-item">Отзывы</a>
             <a href="contacts.html" class="mobile-dropdown-item">Контакты</a>
         </div>
     </div>
     <div class="mobile-contacts">
-        <a href="tel:+79991234567" class="mobile-contact">📞 +7 (999) 123-45-67</a>
-        <a href="mailto:info@sunrise.ru" class="mobile-contact">✉️ info@sunrise.ru</a>
+        <a href="tel:+79991234567">📞 +7 (999) 123-45-67</a>
+        <a href="mailto:info@sunrise.ru">✉️ info@sunrise.ru</a>
         <button onclick="openModal(); closeMobileMenu();" class="contact-btn" style="margin-top: 15px; width: 100%;">Бесплатный расчет</button>
     </div>
 </div>
@@ -124,7 +120,6 @@
                 <a href="index.html" class="nav-link">О компании</a>
                 <div class="dropdown dropdown-align-right">
                     <a href="team.html" class="dropdown-item">Наша команда</a>
-                    <a href="reviews.html" class="dropdown-item">Отзывы</a>
                     <a href="contacts.html" class="dropdown-item">Контакты</a>
                 </div>
             </li>
@@ -245,22 +240,21 @@
                     <li><a href="tel:+79991234567">📞 +7 (999) 123-45-67</a></li>
                     <li><a href="mailto:info@sunrise.ru">✉️ info@sunrise.ru</a></li>
                     <li>📍 Уфа, ул. Строителей, 10</li>
-                    <li><button onclick="openModal()" style="background: none; border: none; color: #E65020; cursor: pointer; padding: 5px 0; font-weight: 500;">✍️ Написать нам</button></li>
+                    <li><a href="https://www.instagram.com/p/DWgfuftjEXL/" target="_blank">📷 Instagram</a></li>
+                    <li><a href="https://vk.ru/wall-212836881_11" target="_blank">📱 ВКонтакте</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <div>© 2026 Санрайз. Все права защищены.</div>
-            <div><a href="../../calculator/index.html" style="color: #E65020; text-decoration: none;">Калькулятор</a></div>
+            <div>Работаем по всему Башкортостану</div>
         </div>
     </div>
 </footer>
 
 <script src="https://unpkg.com/imask"></script>
 <script src="../../js/main.js"></script>
-<script src="../../js/team.js"></script>
-<script src="../../js/carousel.js"></script>
-
-
+<script src="js/about.js"></script>
+<script src="js/team.js"></script>
 </body>
 </html>
