@@ -1,13 +1,14 @@
-// Данные для карусели проектов
+// Данные для карусели проектов (только 2 фото)
 const projectsData = [
-    { image: "images/1.png", caption: "Коттедж в ЖК «Солнечный», 210 м²" },
-    { image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=500&fit=crop", caption: "Ремонт квартиры в Казани" },
-    { image: "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&h=500&fit=crop", caption: "Ремонт квартиры в ЖК «Восход», 78 м²" },
-    { image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=500&fit=crop", caption: "Строительство дома из газобетона, 150 м²" }
+    { image: "images/2.png", caption: "Строительство дома" },
+    { image: "images/1.png", caption: "Ремонт квартиры в современном стиле" }
 ];
 
 let currentSlide = 0;
 let slideInterval;
+
+// URL бэкенда
+const SERVER_URL = 'http://localhost:5001/send_message';
 
 // ========== КАРУСЕЛЬ ==========
 function initHeroCarousel() {
@@ -131,17 +132,6 @@ async function sendForm(event) {
     if (btnText) btnText.style.opacity = '0.7';
 
     try {
-        // TODO: Заменить на реальный URL после деплоя
-        const SERVER_URL = 'https://sunrise-bot.ваш-аккаунт.workers.dev';
-
-        if (SERVER_URL.includes('ваш-аккаунт')) {
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            showSuccess('✓ Заявка отправлена! Мы свяжемся с вами.');
-            clearForm();
-            setTimeout(() => closeModal(), 2000);
-            return;
-        }
-
         const response = await fetch(SERVER_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -151,7 +141,7 @@ async function sendForm(event) {
         const result = await response.json();
 
         if (result.success) {
-            showSuccess('✓ ' + result.message);
+            showSuccess(result.message);
             clearForm();
             setTimeout(() => closeModal(), 2000);
         } else {
@@ -159,7 +149,7 @@ async function sendForm(event) {
         }
     } catch (error) {
         console.error('Error:', error);
-        showError('✗ Ошибка отправки. Попробуйте позже или позвоните нам.');
+        showError('Ошибка отправки. Попробуйте позже или позвоните нам.');
     } finally {
         if (submitBtn) submitBtn.disabled = false;
         if (loader) loader.style.display = 'none';
@@ -171,7 +161,7 @@ function showError(text) {
     const statusDiv = document.getElementById('formStatus');
     if (!statusDiv) return;
     statusDiv.className = 'form-status error';
-    statusDiv.textContent = '✗ ' + text;
+    statusDiv.textContent = text;
     statusDiv.style.display = 'block';
     setTimeout(() => {
         statusDiv.style.display = 'none';
@@ -195,11 +185,7 @@ function clearForm() {
     if (messageInput) messageInput.value = '';
 }
 
-// ========== КАЛЬКУЛЯТОР (ОБНОВЛЕННЫЙ) ==========
-// Цены за м²:
-// - Строительство дома: 35 000 ₽/м² (без сложности)
-// - Ремонт: косметический 7 000, капитальный 14 000, дизайнерский 18 000
-
+// ========== КАЛЬКУЛЯТОР ==========
 function calculatePrice() {
     const areaRange = document.getElementById('areaRange');
     const area = areaRange ? parseInt(areaRange.value) : 100;
@@ -211,10 +197,8 @@ function calculatePrice() {
     let prefix = 'от ';
 
     if (type === 'building') {
-        // Строительство дома: 35 000 за м²
         total = area * 35000;
     } else {
-        // Ремонт: в зависимости от сложности
         let complexityElement = document.querySelector('.calc-option.active[data-complexity]');
         let complexity = complexityElement ? complexityElement.getAttribute('data-complexity') : 'capital';
 
@@ -247,17 +231,14 @@ function updateArea(value) {
     calculatePrice();
 }
 
-// Управление видимостью блока сложности
 function toggleComplexityVisibility() {
     const typeElement = document.querySelector('.calc-option.active[data-type]');
     const type = typeElement ? typeElement.getAttribute('data-type') : 'building';
     const complexityGroup = document.getElementById('complexityGroup');
 
     if (type === 'building') {
-        // Строительство дома - скрываем выбор сложности
         if (complexityGroup) complexityGroup.classList.add('hidden');
     } else {
-        // Ремонт - показываем выбор сложности
         if (complexityGroup) complexityGroup.classList.remove('hidden');
     }
     calculatePrice();
@@ -289,18 +270,15 @@ function initCalculator() {
         });
     }
 
-    // Обработка кликов по типу работ
     const typeOptions = document.querySelectorAll('.calc-option[data-type]');
     typeOptions.forEach(option => {
         option.addEventListener('click', function() {
-            // Убираем active у всех опций типа
             typeOptions.forEach(opt => opt.classList.remove('active'));
             this.classList.add('active');
             toggleComplexityVisibility();
         });
     });
 
-    // Обработка кликов по сложности
     const complexityOptions = document.querySelectorAll('.calc-option[data-complexity]');
     complexityOptions.forEach(option => {
         option.addEventListener('click', function() {
@@ -317,7 +295,6 @@ function initCalculator() {
         calculateBtn.addEventListener('click', calculateAndRedirect);
     }
 
-    // Начальная настройка видимости
     toggleComplexityVisibility();
     calculatePrice();
 }
@@ -334,7 +311,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Закрытие меню при клике на ссылки
     document.querySelectorAll('.mobile-dropdown-item, .mobile-nav-link').forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });

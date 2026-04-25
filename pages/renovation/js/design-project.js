@@ -99,7 +99,7 @@ const projects = [
         tags: ["Quiet Luxury", "Пентхаус", "Натуральный камень", "Премиум"],
         images: [
             "images/project8/1.png",
-            "images/project8/2.png",
+            "images/project8/5.png",
             "images/project8/3.png"
         ]
     }

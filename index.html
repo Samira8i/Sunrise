@@ -4,19 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Санрайз | Строительство и ремонт с душой</title>
-    <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- Оверлей для модального окна -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
 
-<!-- МОДАЛЬНОЕ ОКНО С ФОРМОЙ СВЯЗИ -->
 <div class="modal" id="contactModal">
     <div class="modal-close" onclick="closeModal()">×</div>
     <h3 class="modal-title">Бесплатный расчет стоимости</h3>
@@ -25,7 +21,6 @@
             <label class="form-label">Ваше имя *</label>
             <input type="text" class="form-input" id="name" placeholder="Как к вам обращаться?" required>
         </div>
-
         <div class="form-group">
             <label class="form-label">Телефон *</label>
             <input type="tel" class="form-input" id="phone" placeholder="+7 (___) ___-__-__" required>
@@ -34,16 +29,13 @@
             <label class="form-label">Сообщение</label>
             <textarea class="form-input" id="message" rows="4" placeholder="Опишите ваш вопрос или пожелания..."></textarea>
         </div>
-
         <div class="form-group">
             <label class="form-label" style="display: flex; align-items: center; gap: 10px;">
                 <input type="checkbox" id="agree" checked>
                 <span style="font-size: 0.9rem; color: #666;">Согласен на обработку персональных данных</span>
             </label>
         </div>
-
         <div class="form-status" id="formStatus"></div>
-
         <button type="submit" class="form-btn" id="submitBtn">
             <span>Получить расчет</span>
             <span class="btn-loader" style="display: none;">⏳</span>
@@ -51,53 +43,27 @@
     </form>
 </div>
 
-<!-- Мобильное меню -->
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-close" onclick="toggleMobileMenu()">×</div>
-
     <div class="mobile-nav-item">
-        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">Ремонт квартир и домов</div>
-        <div class="mobile-dropdown">
-            <a href="pages/renovation/apartment-renovation.html" class="mobile-dropdown-item">Ремонт квартир и домов</a>
-            <a href="pages/renovation/office-renovation.html" class="mobile-dropdown-item">Ремонт коммерческих помещений</a>
-            <a href="pages/renovation/design-project.html" class="mobile-dropdown-item">Дизайн-проекты</a>
-        </div>
+        <a href="pages/renovation/index.html" class="mobile-nav-link">Ремонт квартир и домов</a>
     </div>
-
     <div class="mobile-nav-item">
-        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">Строительство домов</div>
-        <div class="mobile-dropdown">
-            <a href="pages/building/brick-houses.html" class="mobile-dropdown-item">Кирпичные дома</a>
-            <a href="pages/building/frame-houses.html" class="mobile-dropdown-item">Каркасные дома</a>
-            <a href="pages/building/turnkey.html" class="mobile-dropdown-item">Дома под ключ</a>
-        </div>
+        <a href="pages/building/index.html" class="mobile-nav-link">Строительство домов</a>
     </div>
-
     <div class="mobile-nav-item">
         <a href="pages/portfolio/index.html" class="mobile-nav-link">Портфолио</a>
     </div>
-
     <div class="mobile-nav-item">
-        <a href="pages/prices/index.html" class="mobile-nav-link">Цены</a>
+        <a href="pages/about/index.html" class="mobile-nav-link">О компании</a>
     </div>
-
-    <div class="mobile-nav-item">
-        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">О компании</div>
-        <div class="mobile-dropdown">
-            <a href="pages/about/team.html" class="mobile-dropdown-item">Наша команда</a>
-            <a href="pages/about/reviews.html" class="mobile-dropdown-item">Отзывы</a>
-            <a href="pages/about/contacts.html" class="mobile-dropdown-item">Контакты</a>
-        </div>
-    </div>
-
     <div class="mobile-contacts">
-        <a href="tel:+79177703184">+7 (917) 770-31-84</a>
-        <a href="camil1971@mail.ru">camil1971@mail.ru</a>
+        <a href="tel:+79378303707">+7 (937) 830-37-07</a>
+        <a href="mailto:camil1971@mail.ru">camil1971@mail.ru</a>
         <button onclick="openModal(); closeMobileMenu();" class="contact-btn" style="margin-top: 15px; width: 100%;">Бесплатный расчет</button>
     </div>
 </div>
 
-<!-- ШАПКА -->
 <header class="header">
     <div class="container header-content">
         <div class="logo">
@@ -105,45 +71,24 @@
                 <img src="logo.png" alt="Санрайз" onerror="this.src='https://via.placeholder.com/200x70/E65020/F3A119?text=САНРАЙЗ'">
             </a>
         </div>
-
         <ul class="nav-menu">
             <li class="nav-item">
                 <a href="pages/renovation/index.html" class="nav-link">Ремонт квартир и домов</a>
-                <div class="dropdown">
-                    <a href="pages/renovation/apartment-renovation.html" class="dropdown-item">Ремонт квартир и домов</a>
-                    <a href="pages/renovation/office-renovation.html" class="dropdown-item">Ремонт коммерческих помещений</a>
-                    <a href="pages/renovation/design-project.html" class="dropdown-item">Дизайн-проекты</a>
-                </div>
             </li>
             <li class="nav-item">
                 <a href="pages/building/index.html" class="nav-link">Строительство домов</a>
-                <div class="dropdown">
-                    <a href="pages/building/brick-houses.html" class="dropdown-item">Кирпичные дома</a>
-                    <a href="pages/building/frame-houses.html" class="dropdown-item">Каркасные дома</a>
-                    <a href="pages/building/turnkey.html" class="dropdown-item">Дома под ключ</a>
-                </div>
             </li>
             <li class="nav-item">
                 <a href="pages/portfolio/index.html" class="nav-link">Портфолио</a>
             </li>
-            <li class="nav-item">
-                <a href="pages/prices/index.html" class="nav-link">Цены</a>
-            </li>
             <li class="nav-item dropdown-right">
                 <a href="pages/about/index.html" class="nav-link">О компании</a>
-                <div class="dropdown dropdown-align-right">
-                    <a href="pages/about/team.html" class="dropdown-item">Наша команда</a>
-                    <a href="pages/about/reviews.html" class="dropdown-item">Отзывы</a>
-                    <a href="pages/about/contacts.html" class="dropdown-item">Контакты</a>
-                </div>
             </li>
         </ul>
-
         <div class="contacts-header">
-            <a href="tel:+79991234567" class="contact-badge"><span>📞</span> +7 (999) 123-45-67</a>
-            <a href="mailto:info@sunrise.ru" class="contact-badge"><span>✉️</span> info@sunrise.ru</a>
+            <a href="tel:+79378303707" class="contact-badge">+7 (937) 830-37-07</a>
+            <a href="mailto:camil1971@mail.ru" class="contact-badge">camil1971@mail.ru</a>
         </div>
-
         <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
@@ -152,7 +97,6 @@
     </div>
 </header>
 
-<!-- ГЕРОЙ -->
 <section class="hero">
     <div class="container hero-container">
         <div class="hero-content-left">
@@ -167,8 +111,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Статистика -->
     <div class="container">
         <div class="hero-stats-full">
             <div class="stats-container">
@@ -189,7 +131,6 @@
     </div>
 </section>
 
-<!-- ПРЕИМУЩЕСТВА (только 2 карточки: опыт и смета) -->
 <section class="section">
     <div class="container">
         <h2><span>Почему</span> Санрайз</h2>
@@ -199,24 +140,22 @@
                 <p>Более 500 сданных объектов</p>
             </div>
             <div class="service-card">
-                <h3>Точно в срок</h3>
-                <p>Штрафы за просрочку</p>
-            </div>
-            <div class="service-card">
                 <h3>Смета за 24ч</h3>
                 <p>Прозрачный расчёт без переплат</p>
+            </div>
+            <div class="service-card">
+                <h3>Точно в срок</h3>
+                <p>Штрафы за просрочку</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- КАЛЬКУЛЯТОР -->
 <section class="section calculator-section">
     <div class="container">
         <h2><span>Калькулятор</span> стоимости</h2>
         <div class="calculator">
             <h3>Выберите параметры для расчета</h3>
-
             <div class="calc-group">
                 <div class="calc-label">Тип работ:</div>
                 <div class="calc-options">
@@ -224,13 +163,10 @@
                     <div class="calc-option" data-type="renovation">Ремонт квартиры или дома</div>
                 </div>
             </div>
-
             <div class="calc-group">
                 <div class="calc-label">Площадь (м²): <span id="areaValue">100</span></div>
                 <input type="range" class="calc-range" id="areaRange" min="20" max="500" value="100" step="10">
             </div>
-
-            <!-- Блок сложности (скрывается при выборе "Строительство дома") -->
             <div class="calc-group complexity-group" id="complexityGroup">
                 <div class="calc-label">Сложность ремонта:</div>
                 <div class="calc-options">
@@ -239,7 +175,6 @@
                     <div class="calc-option" data-complexity="designer">Дизайнерский</div>
                 </div>
             </div>
-
             <div class="calc-result">
                 <div class="calc-price" id="totalPrice">от 3 500 000 ₽</div>
                 <button class="calc-btn" id="calculateBtn">Получить точную смету</button>
@@ -248,7 +183,16 @@
     </div>
 </section>
 
-<!-- НАШИ УСЛУГИ -->
+<section class="section team-carousel-section">
+    <div class="container">
+        <h2><span>Наша</span> команда</h2>
+        <div id="mainTeamCarousel"></div>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="pages/about/index.html" class="contact-btn" style="display: inline-block; text-decoration: none; padding: 12px 30px;">Подробнее →</a>
+        </div>
+    </div>
+</section>
+
 <section class="section">
     <div class="container">
         <h2><span>Наши</span> услуги</h2>
@@ -267,13 +211,11 @@
     </div>
 </section>
 
-<!-- КНОПКА БЫСТРОЙ СВЯЗИ -->
 <button class="contact-fab" onclick="openModal()">
     <span>✉️</span>
     <span class="fab-text">Написать нам</span>
 </button>
 
-<!-- ФУТЕР -->
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
@@ -293,33 +235,19 @@
                     <li><a href="pages/about/index.html">О компании</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Услуги</h4>
-                <ul>
-                    <li><a href="pages/building/brick-houses.html">Кирпичные дома</a></li>
-                    <li><a href="pages/building/frame-houses.html">Каркасные дома</a></li>
-                    <li><a href="pages/renovation/apartment-renovation.html">Ремонт квартир</a></li>
-                    <li><a href="pages/renovation/design-project.html">Дизайн проекты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Контакты</h4>
-                <ul>
-                    <li><a href="tel:+79177703184">+7 (917) 770-31-84</a></li>
-                    <li><a href="camil1971@mail.ru">camil1971@mail.ru</a></li>
-                    <li>Уфа, ул. Строителей, 10</li>
-                    <li><button onclick="openModal()" class="footer-contact-btn">Написать нам</button></li>
-                </ul>
-            </div>
         </div>
         <div class="footer-bottom">
+            <div class="footer-requisites">
+                <span>ООО "Санрайз" | ИНН: 1234567890 | ОГРН: 1234567890123 | Юр. адрес: г. Уфа, ул. Строителей, д. 10</span>
+            </div>
             <div>© 2026 Санрайз. Все права защищены.</div>
-            <div>Работаем по всему Башкортостану</div>
         </div>
     </div>
 </footer>
 
 <script src="https://unpkg.com/imask"></script>
+<script src="js/team-data.js"></script>
 <script src="js/main.js"></script>
+<script src="js/team-carousel.js"></script>
 </body>
 </html>

@@ -4,20 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Строительство домов | Санрайз</title>
-    <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- CSS -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="css/building.css">
 </head>
 <body>
 
-<!-- Оверлей для модального окна формы -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
 
-<!-- МОДАЛЬНОЕ ОКНО С ФОРМОЙ СВЯЗИ -->
 <div class="modal" id="contactModal">
     <div class="modal-close" onclick="closeModal()">×</div>
     <h3 class="modal-title">Бесплатный расчет стоимости</h3>
@@ -35,9 +31,9 @@
             <textarea class="form-input" id="message" rows="4" placeholder="Опишите ваш вопрос или пожелания..."></textarea>
         </div>
         <div class="form-group">
-            <label class="form-label" style="display: flex; align-items: center; gap: 10px;">
-                <input type="checkbox" id="agree" checked>
-                <span style="font-size: 0.9rem; color: #666;">Согласен на обработку персональных данных</span>
+            <label class="form-label">
+                <input type="checkbox" id="agree" checked style="margin-right: 10px;">
+                Согласен на обработку персональных данных
             </label>
         </div>
         <div class="form-status" id="formStatus"></div>
@@ -48,101 +44,51 @@
     </form>
 </div>
 
-<!-- МОДАЛЬНОЕ ОКНО ПРОЕКТА -->
-<div class="project-modal-overlay" id="projectModalOverlay" onclick="closeProjectModal()"></div>
-<div class="project-modal" id="projectModal">
-    <div class="project-modal-close" onclick="closeProjectModal()">×</div>
-    <div id="projectModalContent"></div>
-</div>
-
-<!-- Мобильное меню -->
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-close" onclick="toggleMobileMenu()">×</div>
     <div class="mobile-nav-item">
-        <a href="index.html" class="mobile-nav-link">Строительство домов</a>
-        <div class="mobile-dropdown">
-            <a href="#" class="mobile-dropdown-item" data-category="one-story">Одноэтажные дома</a>
-            <a href="#" class="mobile-dropdown-item" data-category="frame">Каркасные дома</a>
-            <a href="#" class="mobile-dropdown-item" data-category="aerated">Дома из газобетона</a>
-        </div>
+        <a href="../renovation/index.html" class="mobile-nav-link">Ремонт квартир и домов</a>
     </div>
     <div class="mobile-nav-item">
-        <a href="../renovation/index.html" class="mobile-nav-link">Ремонт и отделка</a>
-        <div class="mobile-dropdown">
-            <a href="../renovation/apartment-renovation.html" class="mobile-dropdown-item">Ремонт квартир</a>
-            <a href="../renovation/office-renovation.html" class="mobile-dropdown-item">Ремонт домов</a>
-            <a href="../renovation/design-project.html" class="mobile-dropdown-item">Дизайн проекты</a>
-        </div>
+        <a href="index.html" class="mobile-nav-link">Строительство домов</a>
     </div>
     <div class="mobile-nav-item">
         <a href="../portfolio/index.html" class="mobile-nav-link">Портфолио</a>
     </div>
     <div class="mobile-nav-item">
-        <a href="../prices/index.html" class="mobile-nav-link">Цены</a>
-    </div>
-    <div class="mobile-nav-item">
         <a href="../about/index.html" class="mobile-nav-link">О компании</a>
-        <div class="mobile-dropdown">
-            <a href="../about/team.html" class="mobile-dropdown-item">Наша команда</a>
-            <a href="../about/reviews.html" class="mobile-dropdown-item">Отзывы</a>
-            <a href="../about/contacts.html" class="mobile-dropdown-item">Контакты</a>
-        </div>
     </div>
     <div class="mobile-contacts">
-        <a href="tel:+79991234567" style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: #1E1E1E; text-decoration: none;">
-            <span style="color: #E65020;">📞</span> +7 (999) 123-45-67
-        </a>
-        <a href="mailto:info@sunrise.ru" style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: #1E1E1E; text-decoration: none;">
-            <span style="color: #E65020;">✉️</span> info@sunrise.ru
-        </a>
-        <button onclick="openModal(); toggleMobileMenu();" class="contact-btn" style="margin-top: 15px; width: 100%;">Бесплатный расчет</button>
+        <a href="tel:+79378303707">+7 (937) 830-37-07</a>
+        <a href="mailto:camil1971@mail.ru">camil1971@mail.ru</a>
+        <button onclick="openModal(); closeMobileMenu();" class="contact-btn" style="margin-top: 15px; width: 100%;">Бесплатный расчет</button>
     </div>
 </div>
 
-<!-- ШАПКА -->
 <header class="header">
     <div class="container header-content">
         <div class="logo">
             <a href="../../index.html">
-                <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://placehold.co/200x70/E65020/F3A119?text=САНРАЙЗ'">
+                <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://via.placeholder.com/200x70/E65020/F3A119?text=САНРАЙЗ'">
             </a>
         </div>
         <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="../renovation/index.html" class="nav-link">Ремонт квартир и домов</a>
+            </li>
             <li class="nav-item active">
                 <a href="index.html" class="nav-link">Строительство домов</a>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-item" data-category="one-story">Одноэтажные дома</a>
-                    <a href="#" class="dropdown-item" data-category="frame">Каркасные дома</a>
-                    <a href="#" class="dropdown-item" data-category="aerated">Дома из газобетона</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="../renovation/index.html" class="nav-link">Ремонт и отделка</a>
-                <div class="dropdown">
-                    <a href="../renovation/apartment-renovation.html" class="dropdown-item">Ремонт квартир</a>
-                    <a href="../renovation/office-renovation.html" class="dropdown-item">Ремонт домов</a>
-                    <a href="../renovation/design-project.html" class="dropdown-item">Дизайн проекты</a>
-                </div>
             </li>
             <li class="nav-item">
                 <a href="../portfolio/index.html" class="nav-link">Портфолио</a>
             </li>
-            <li class="nav-item">
-                <a href="../prices/index.html" class="nav-link">Цены</a>
-            </li>
             <li class="nav-item dropdown-right">
                 <a href="../about/index.html" class="nav-link">О компании</a>
-                <div class="dropdown dropdown-align-right">
-                    <a href="../about/team.html" class="dropdown-item">Наша команда</a>
-                    <a href="../about/reviews.html" class="dropdown-item">Отзывы</a>
-                    <a href="../about/contacts.html" class="dropdown-item">Контакты</a>
-                </div>
             </li>
         </ul>
         <div class="contacts-header">
-            <a href="tel:+79991234567" class="contact-badge"><span>📞</span> +7 (999) 123-45-67</a>
-            <a href="mailto:info@sunrise.ru" class="contact-badge"><span>✉️</span> info@sunrise.ru</a>
-            <button onclick="openModal()" class="contact-btn">Бесплатный расчет</button>
+            <a href="tel:+79378303707" class="contact-badge">+7 (937) 830-37-07</a>
+            <a href="mailto:camil1971@mail.ru" class="contact-badge">camil1971@mail.ru</a>
         </div>
         <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
             <span></span>
@@ -156,119 +102,187 @@
 <section class="building-hero">
     <div class="container">
         <h1 class="building-title"><span>Строительство</span> домов</h1>
-        <p class="building-subtitle">Возводим надежные и теплые дома по современным технологиям. От проекта до ключа — с гарантией качества 10 лет.</p>
+        <p class="building-subtitle">Строим надежные и теплые дома по современным технологиям. От проекта до ключа — с гарантией качества 10 лет.</p>
+        <button onclick="openModal()" class="hero-btn">Рассчитать стоимость →</button>
     </div>
 </section>
 
-<!-- ВВОДНЫЙ ТЕКСТ -->
-<div class="container" id="introTextContainer">
-    <div class="intro-text">
-        <p>🏠 <strong>Санрайз</strong> — строительная компания с 24-летним опытом работы. Строим дома любой сложности: от небольших дачных домиков до просторных коттеджей.</p>
-        <p>🔨 Используем современные материалы и технологии: газобетон, каркасное строительство по канадской технологии. Каждый проект адаптируем под ваш участок.</p>
-        <p>✨ Работаем по всей Московской области и Республике Башкортостан. Гарантия на все работы — 10 лет. Строительство под ключ: от фундамента до финишной отделки.</p>
-    </div>
-</div>
-
-<!-- КАТЕГОРИИ ДОМОВ -->
-<section class="categories-section" id="categoriesSection">
+<!-- БЛОК О КОМПАНИИ (ТЕКСТ + МЕСТО ДЛЯ ФОТО/ВИДЕО) -->
+<section class="section about-company-section">
     <div class="container">
-        <div class="section-header">
-            <h2>Выберите тип дома</h2>
-            <p>Готовые проекты и возможность индивидуального проектирования</p>
-        </div>
-        <div class="categories-grid" id="categoriesGrid"></div>
-    </div>
-</section>
-
-<!-- СТРАНИЦА КАТЕГОРИИ (скрыта по умолчанию) -->
-<section class="projects-showcase" id="categoryPage" style="display: none;">
-    <div class="container">
-        <button class="back-button" id="backToCategoriesBtn">← Вернуться ко всем категориям</button>
-        <h2 class="category-title-page" id="categoryTitle"></h2>
-        <p class="category-desc-page" id="categoryDescription"></p>
-        <div class="projects-grid-custom" id="projectsGrid"></div>
-    </div>
-</section>
-
-<!-- СТАТИСТИКА -->
-<section class="building-stats">
-    <div class="container">
-        <div class="stats-grid">
-            <div class="stat-block-custom">
-                <div class="stat-number-custom">24+</div>
-                <div class="stat-label-custom">лет опыта</div>
+        <div class="about-company-grid">
+            <div class="about-company-text">
+                <h2><span>Санрайз</span> — строительная компания</h2>
+                <p>Основана в 2012 году. Мы строим дома любой сложности: от небольших дачных домиков до просторных коттеджей. Используем современные материалы и технологии: газобетон, каркасное строительство по канадской технологии, керамические блоки и кирпич.</p>
+                <p>Каждый проект адаптируем под ваш участок. Работаем по всей Республике Башкортостан. Гарантия на все работы — 10 лет. Строительство под ключ: от фундамента до финишной отделки.</p>
+                <p>Для каждого клиента разрабатываем индивидуальный проект, учитывая все пожелания и особенности участка. Доверяйте строительство профессионалам!</p>
+                <button onclick="openModal()" class="contact-btn" style="margin-top: 20px;">Заказать консультацию</button>
             </div>
-            <div class="stat-block-custom">
-                <div class="stat-number-custom">1000+</div>
-                <div class="stat-label-custom">построенных домов</div>
-            </div>
-            <div class="stat-block-custom">
-                <div class="stat-number-custom">10 лет</div>
-                <div class="stat-label-custom">гарантии</div>
-            </div>
-            <div class="stat-block-custom">
-                <div class="stat-number-custom">28%</div>
-                <div class="stat-label-custom">экономия</div>
+            <div class="about-company-media">
+                <div class="media-placeholder" id="companyMedia">
+                    <img src="images/company.jpg" alt="Санрайз строительство" onerror="this.parentElement.innerHTML='<div class=\'placeholder-content\'><span>🏠</span><p>Фотография компании</p></div>'">
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- КНОПКА БЫСТРОЙ СВЯЗИ -->
+<!-- КАК МЫ РАБОТАЕМ -->
+<section class="section how-we-work-section">
+    <div class="container">
+        <h2><span>Как мы</span> работаем</h2>
+        <div class="steps-grid-new">
+            <div class="step-item">
+                <div class="step-num">01</div>
+                <h3>Оставляете заявку</h3>
+                <p>Заполняете форму на сайте или звоните нам</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">02</div>
+                <h3>Предлагаем варианты</h3>
+                <p>Подбираем оптимальные проекты под ваш бюджет</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">03</div>
+                <h3>Составляем смету</h3>
+                <p>Детальный расчет материалов и работ</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">04</div>
+                <h3>Заключаем договор</h3>
+                <p>Фиксируем цену и сроки в договоре</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">05</div>
+                <h3>Вносите предоплату</h3>
+                <p>Прозрачная система оплаты поэтапно</p>
+            </div>
+            <div class="step-item">
+                <div class="step-num">06</div>
+                <h3>Строим дом под ключ</h3>
+                <p>Сдаем объект точно в срок с гарантией</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ПРЕИМУЩЕСТВА -->
+<section class="section advantages-section">
+    <div class="container">
+        <h2><span>Наши</span> преимущества</h2>
+        <div class="advantages-grid-new">
+            <div class="advantage-card">
+                <h3>Собственное производство</h3>
+                <p>Изготавливаем домокомплект на собственном производстве</p>
+            </div>
+            <div class="advantage-card">
+                <h3>1000+ домов построено</h3>
+                <p>Более 1000 семей выбрали нашу компанию</p>
+            </div>
+            <div class="advantage-card">
+                <h3>Надежные технологии</h3>
+                <p>Используем проверенные технологии строительства</p>
+            </div>
+            <div class="advantage-card">
+                <h3>Технический надзор</h3>
+                <p>Строгий контроль на каждом этапе строительства</p>
+            </div>
+            <div class="advantage-card">
+                <h3>Прозрачный договор</h3>
+                <p>Фиксация сроков и стоимости. Гарантия 10 лет</p>
+            </div>
+            <div class="advantage-card">
+                <h3>Строим в ипотеку</h3>
+                <p>Работаем со всеми крупнейшими банками</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- НАШИ РАБОТЫ (ГАЛЕРЕЯ) -->
+<section class="section works-gallery-section">
+    <div class="container">
+        <h2><span>Наши</span> работы</h2>
+        <p class="gallery-subtitle">Реализованные проекты домов</p>
+        <div class="works-grid" id="worksGrid">
+            <div class="work-item">
+                <img src="images/work1.jpg" alt="Построенный дом" onerror="this.src='https://via.placeholder.com/400x300/E65020/FFFFFF?text=Дом'">
+                <div class="work-overlay">
+                    <h4>Коттедж в ЖК Солнечный</h4>
+                    <p>210 м² | Газобетон</p>
+                </div>
+            </div>
+            <div class="work-item">
+                <img src="images/work2.jpg" alt="Построенный дом" onerror="this.src='https://via.placeholder.com/400x300/E65020/FFFFFF?text=Дом'">
+                <div class="work-overlay">
+                    <h4>Каркасный дом</h4>
+                    <p>150 м² | Канадская технология</p>
+                </div>
+            </div>
+            <div class="work-item">
+                <img src="images/work3.jpg" alt="Построенный дом" onerror="this.src='https://via.placeholder.com/400x300/E65020/FFFFFF?text=Дом'">
+                <div class="work-overlay">
+                    <h4>Дом из газобетона</h4>
+                    <p>180 м² | Под ключ</p>
+                </div>
+            </div>
+            <div class="work-item">
+                <img src="images/work4.jpg" alt="Построенный дом" onerror="this.src='https://via.placeholder.com/400x300/E65020/FFFFFF?text=Дом'">
+                <div class="work-overlay">
+                    <h4>Кирпичный коттедж</h4>
+                    <p>250 м² | Премиум класс</p>
+                </div>
+            </div>
+            <div class="work-item">
+                <img src="images/work5.jpg" alt="Построенный дом" onerror="this.src='https://via.placeholder.com/400x300/E65020/FFFFFF?text=Дом'">
+                <div class="work-overlay">
+                    <h4>Дачный дом</h4>
+                    <p>90 м² | Эконом вариант</p>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <button onclick="openModal()" class="contact-btn" style="padding: 14px 35px; font-size: 1rem;">Заказать дизайн-проект</button>
+        </div>
+    </div>
+</section>
+
 <button class="contact-fab" onclick="openModal()">
     <span>✉️</span>
     <span class="fab-text">Написать нам</span>
 </button>
 
-<!-- ФУТЕР -->
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
             <div class="footer-col">
                 <div class="footer-logo">
-                    <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://placehold.co/200x70/E65020/F3A119?text=САНРАЙЗ'">
+                    <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://via.placeholder.com/200x70/E65020/F3A119?text=САНРАЙЗ'">
                 </div>
-                <p>Строительство и ремонт с душой. Работаем с 2012 года.</p>
+                <p>Строительство и ремонт с душой. Работаем в Башкортостане с 2012 года.</p>
                 <button onclick="openModal()" class="contact-btn" style="margin-top: 15px;">Бесплатный расчет</button>
             </div>
             <div class="footer-col">
                 <h4>Навигация</h4>
                 <ul>
-                    <li><a href="index.html">Строительство домов</a></li>
-                    <li><a href="../renovation/index.html">Ремонт и отделка</a></li>
+                    <li><a href="../renovation/index.html">Ремонт квартир и домов</a></li>
+                    <li><a href="index.html">Строительство</a></li>
                     <li><a href="../portfolio/index.html">Портфолио</a></li>
                     <li><a href="../about/index.html">О компании</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Услуги</h4>
-                <ul>
-                    <li><a href="#" data-category="one-story">Одноэтажные дома</a></li>
-                    <li><a href="#" data-category="frame">Каркасные дома</a></li>
-                    <li><a href="#" data-category="aerated">Дома из газобетона</a></li>
-                    <li><a href="../renovation/design-project.html">Дизайн проекты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Контакты</h4>
-                <ul>
-                    <li><a href="tel:+79991234567">📞 +7 (999) 123-45-67</a></li>
-                    <li><a href="mailto:info@sunrise.ru">✉️ info@sunrise.ru</a></li>
-                    <li>📍 Уфа, ул. Строителей, 10</li>
-                    <li><button onclick="openModal()" style="background: none; border: none; color: #E65020; cursor: pointer; padding: 5px 0; font-weight: 500;">✍️ Написать нам</button></li>
-                </ul>
-            </div>
         </div>
         <div class="footer-bottom">
+            <div class="footer-requisites">
+                <span>ООО "Санрайз" | ИНН: 1234567890 | ОГРН: 1234567890123 | Юр. адрес: г. Уфа, ул. Ленина, д. 50</span>
+            </div>
             <div>© 2026 Санрайз. Все права защищены.</div>
-            <div><a href="../../calculator/index.html" style="color: #E65020; text-decoration: none;">Калькулятор</a></div>
         </div>
     </div>
 </footer>
 
-<!-- Скрипты -->
 <script src="https://unpkg.com/imask"></script>
-<script src="data/categories.js"></script>
+<script src="../../js/main.js"></script>
 <script src="js/building.js"></script>
 </body>
 </html>

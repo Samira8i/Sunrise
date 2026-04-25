@@ -12,10 +12,8 @@
 </head>
 <body>
 
-<!-- Оверлей для модального окна -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
 
-<!-- МОДАЛЬНОЕ ОКНО С ФОРМОЙ СВЯЗИ -->
 <div class="modal" id="contactModal">
     <div class="modal-close" onclick="closeModal()">×</div>
     <h3 class="modal-title">Бесплатный расчет стоимости</h3>
@@ -33,9 +31,9 @@
             <textarea class="form-input" id="message" rows="4" placeholder="Опишите ваш вопрос или пожелания..."></textarea>
         </div>
         <div class="form-group">
-            <label class="form-label" style="display: flex; align-items: center; gap: 10px;">
-                <input type="checkbox" id="agree" checked>
-                <span style="font-size: 0.9rem; color: #666;">Согласен на обработку персональных данных</span>
+            <label class="form-label">
+                <input type="checkbox" id="agree" checked style="margin-right: 10px;">
+                Согласен на обработку персональных данных
             </label>
         </div>
         <div class="form-status" id="formStatus"></div>
@@ -46,46 +44,27 @@
     </form>
 </div>
 
-<!-- Мобильное меню -->
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-close" onclick="toggleMobileMenu()">×</div>
     <div class="mobile-nav-item">
-        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">Ремонт квартир и домов</div>
-        <div class="mobile-dropdown">
-            <a href="../renovation/apartment-renovation.html" class="mobile-dropdown-item">Ремонт квартир и домов</a>
-            <a href="../renovation/office-renovation.html" class="mobile-dropdown-item">Ремонт коммерческих помещений</a>
-            <a href="../renovation/design-project.html" class="mobile-dropdown-item">Дизайн-проекты</a>
-        </div>
+        <a href="../renovation/index.html" class="mobile-nav-link">Ремонт квартир и домов</a>
     </div>
     <div class="mobile-nav-item">
-        <div class="mobile-nav-link" onclick="toggleMobileDropdown(this)">Строительство домов</div>
-        <div class="mobile-dropdown">
-            <a href="../building/brick-houses.html" class="mobile-dropdown-item">Кирпичные дома</a>
-            <a href="../building/frame-houses.html" class="mobile-dropdown-item">Каркасные дома</a>
-            <a href="../building/turnkey.html" class="mobile-dropdown-item">Дома под ключ</a>
-        </div>
+        <a href="../building/index.html" class="mobile-nav-link">Строительство домов</a>
     </div>
     <div class="mobile-nav-item">
         <a href="../portfolio/index.html" class="mobile-nav-link">Портфолио</a>
     </div>
     <div class="mobile-nav-item">
-        <a href="../prices/index.html" class="mobile-nav-link">Цены</a>
-    </div>
-    <div class="mobile-nav-item">
-        <div class="mobile-nav-link active" onclick="toggleMobileDropdown(this)">О компании</div>
-        <div class="mobile-dropdown active">
-            <a href="team.html" class="mobile-dropdown-item">Наша команда</a>
-            <a href="contacts.html" class="mobile-dropdown-item">Контакты</a>
-        </div>
+        <a href="index.html" class="mobile-nav-link">О компании</a>
     </div>
     <div class="mobile-contacts">
-        <a href="tel:+79991234567">📞 +7 (999) 123-45-67</a>
-        <a href="mailto:info@sunrise.ru">✉️ info@sunrise.ru</a>
+        <a href="tel:+79378303707">+7 (937) 830-37-07</a>
+        <a href="mailto:camil1971@mail.ru">camil1971@mail.ru</a>
         <button onclick="openModal(); closeMobileMenu();" class="contact-btn" style="margin-top: 15px; width: 100%;">Бесплатный расчет</button>
     </div>
 </div>
 
-<!-- ШАПКА -->
 <header class="header">
     <div class="container header-content">
         <div class="logo">
@@ -96,37 +75,20 @@
         <ul class="nav-menu">
             <li class="nav-item">
                 <a href="../renovation/index.html" class="nav-link">Ремонт квартир и домов</a>
-                <div class="dropdown">
-                    <a href="../renovation/apartment-renovation.html" class="dropdown-item">Ремонт квартир и домов</a>
-                    <a href="../renovation/office-renovation.html" class="dropdown-item">Ремонт коммерческих помещений</a>
-                    <a href="../renovation/design-project.html" class="dropdown-item">Дизайн-проекты</a>
-                </div>
             </li>
             <li class="nav-item">
                 <a href="../building/index.html" class="nav-link">Строительство домов</a>
-                <div class="dropdown">
-                    <a href="../building/brick-houses.html" class="dropdown-item">Кирпичные дома</a>
-                    <a href="../building/frame-houses.html" class="dropdown-item">Каркасные дома</a>
-                    <a href="../building/turnkey.html" class="dropdown-item">Дома под ключ</a>
-                </div>
             </li>
             <li class="nav-item">
                 <a href="../portfolio/index.html" class="nav-link">Портфолио</a>
             </li>
-            <li class="nav-item">
-                <a href="../prices/index.html" class="nav-link">Цены</a>
-            </li>
             <li class="nav-item dropdown-right active">
                 <a href="index.html" class="nav-link">О компании</a>
-                <div class="dropdown dropdown-align-right">
-                    <a href="team.html" class="dropdown-item">Наша команда</a>
-                    <a href="contacts.html" class="dropdown-item">Контакты</a>
-                </div>
             </li>
         </ul>
         <div class="contacts-header">
-            <a href="tel:+79991234567" class="contact-badge"><span>📞</span> +7 (999) 123-45-67</a>
-            <a href="mailto:info@sunrise.ru" class="contact-badge"><span>✉️</span> info@sunrise.ru</a>
+            <a href="tel:+79378303707" class="contact-badge">+7 (937) 830-37-07</a>
+            <a href="mailto:camil1971@mail.ru" class="contact-badge">camil1971@mail.ru</a>
         </div>
         <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
             <span></span>
@@ -136,76 +98,74 @@
     </div>
 </header>
 
-<!-- ОСНОВНОЙ КОНТЕНТ -->
 <section class="section">
     <div class="container">
         <h1><span>О компании</span> Санрайз</h1>
-
         <div class="about-content">
-            <!-- Кто мы -->
             <div class="about-section">
                 <h3>Кто мы</h3>
                 <p style="font-size: 1.2rem; line-height: 1.8; color: #333;">Санрайз — это команда профессионалов с 14-летним опытом в строительстве и ремонте. Мы создаем пространства, в которых хочется жить, работать и творить. Более 500 сданных объектов по всему Башкортостану.</p>
             </div>
 
-            <!-- Наша команда (карусель) -->
             <div class="about-section">
                 <h3>Наша команда</h3>
-                <div id="teamCarousel"></div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="team.html" class="contact-btn" style="display: inline-block; text-decoration: none;">Все сотрудники →</a>
-                </div>
+                <div id="teamGrid" class="team-grid-full"></div>
             </div>
 
-            <!-- Наши ценности -->
             <div class="about-section">
-                <h3>Наши ценности</h3>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon">❤️</div>
-                        <h4>Душевность</h4>
-                        <p>Каждый проект делаем с любовью и вниманием к деталям</p>
+                <h3>Наши контакты</h3>
+                <div class="contacts-grid-simple">
+                    <div class="contact-card-simple">
+                        <div class="contact-icon-simple">T</div>
+                        <h4>Телефон</h4>
+                        <a href="tel:+79378303707" class="contact-link-simple">+7 (937) 830-37-07</a>
+                        <p class="contact-note">Ежедневно 9:00-19:00</p>
                     </div>
-                    <div class="value-card">
-                        <div class="value-icon">⏱️</div>
-                        <h4>Пунктуальность</h4>
-                        <p>Соблюдаем сроки до дня. Штрафы за просрочку</p>
+                    <div class="contact-card-simple">
+                        <div class="contact-icon-simple">@</div>
+                        <h4>Email</h4>
+                        <a href="mailto:camil1971@mail.ru" class="contact-link-simple">camil1971@mail.ru</a>
+                        <p class="contact-note">Ответ в течение 24 часов</p>
                     </div>
-                    <div class="value-card">
-                        <div class="value-icon">💰</div>
-                        <h4>Честность</h4>
-                        <p>Прозрачная смета без скрытых платежей. Фиксируем цену в договоре</p>
+                    <div class="contact-card-simple">
+                        <div class="contact-icon-simple">P</div>
+                        <h4>Адрес</h4>
+                        <p class="contact-address-simple">г. Уфа, ул. Ленина, д. 50</p>
+                        <p class="contact-note">Пн-Пт: 9:00-19:00</p>
                     </div>
-                    <div class="value-card">
-                        <div class="value-icon">🎥</div>
-                        <h4>Открытость</h4>
-                        <p>Онлайн-наблюдение 24/7 за ходом работ</p>
+                    <div class="contact-card-simple">
+                        <div class="contact-icon-simple">I</div>
+                        <h4>Instagram</h4>
+                        <a href="https://www.instagram.com/sunrise_building" target="_blank" class="contact-link-simple">@sunrise_building</a>
+                        <p class="contact-note">Наши работы</p>
+                    </div>
+                    <div class="contact-card-simple">
+                        <div class="contact-icon-simple">V</div>
+                        <h4>ВКонтакте</h4>
+                        <a href="https://vk.com/sunrise_building" target="_blank" class="contact-link-simple">vk.com/sunrise</a>
+                        <p class="contact-note">Актуальные новости</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Реквизиты -->
-            <div class="about-section">
-                <h3>Реквизиты</h3>
-                <div class="requisites">
-                    <p><strong>ООО "Санрайз"</strong></p>
-                    <p>ИНН: 1234567890</p>
-                    <p>ОГРН: 1234567890123</p>
-                    <p>Юр. адрес: г. Уфа, ул. Строителей, д. 10</p>
-                    <p>Режим работы: Пн-Пт 9:00-19:00</p>
+                <div class="map-wrapper-simple">
+                    <iframe
+                            src="https://yandex.ru/map-widget/v1/?ll=55.796127,49.106414&z=16&pt=55.796127,49.106414,pm2rdm&what=constr&text=г. Уфа, ул. Ленина, 50"
+                            width="100%"
+                            height="350"
+                            frameborder="0"
+                            allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- КНОПКА БЫСТРОЙ СВЯЗИ -->
 <button class="contact-fab" onclick="openModal()">
     <span>✉️</span>
     <span class="fab-text">Написать нам</span>
 </button>
 
-<!-- ФУТЕР -->
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
@@ -225,36 +185,25 @@
                     <li><a href="index.html">О компании</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Услуги</h4>
-                <ul>
-                    <li><a href="../building/brick-houses.html">Кирпичные дома</a></li>
-                    <li><a href="../building/frame-houses.html">Каркасные дома</a></li>
-                    <li><a href="../renovation/apartment-renovation.html">Ремонт квартир</a></li>
-                    <li><a href="../renovation/design-project.html">Дизайн проекты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Контакты</h4>
-                <ul>
-                    <li><a href="tel:+79991234567">📞 +7 (999) 123-45-67</a></li>
-                    <li><a href="mailto:info@sunrise.ru">✉️ info@sunrise.ru</a></li>
-                    <li>📍 Уфа, ул. Строителей, 10</li>
-                    <li><a href="https://www.instagram.com/p/DWgfuftjEXL/" target="_blank">📷 Instagram</a></li>
-                    <li><a href="https://vk.ru/wall-212836881_11" target="_blank">📱 ВКонтакте</a></li>
-                </ul>
-            </div>
         </div>
         <div class="footer-bottom">
+            <div class="footer-requisites">
+                <span>ООО "Санрайз" | ИНН: 1234567890 | ОГРН: 1234567890123 | Юр. адрес: г. Уфа, ул. Ленина, д. 50</span>
+            </div>
             <div>© 2026 Санрайз. Все права защищены.</div>
-            <div>Работаем по всему Башкортостану</div>
         </div>
     </div>
 </footer>
 
 <script src="https://unpkg.com/imask"></script>
+<script src="../../js/team-data.js"></script>
 <script src="../../js/main.js"></script>
 <script src="js/about.js"></script>
-<script src="js/team.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        renderTeamGrid('teamGrid');
+    });
+</script>
 </body>
 </html>

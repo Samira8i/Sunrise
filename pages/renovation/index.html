@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ремонт и дизайн интерьеров | Санрайз</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="css/renovation.css">
+</head>
+<body>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+
+<div class="modal" id="contactModal">
+    <div class="modal-close" onclick="closeModal()">×</div>
+    <h3 class="modal-title">Заказать дизайн-проект</h3>
+    <form id="contactForm" onsubmit="sendDesignRequest(event)">
+        <div class="form-group">
+            <label class="form-label">Ваше имя *</label>
+            <input type="text" class="form-input" id="name" placeholder="Как к вам обращаться?" required>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Телефон *</label>
+            <input type="tel" class="form-input" id="phone" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Тип ремонта</label>
+            <select class="form-input" id="renovationType">
+                <option value="Черновая отделка">Черновая отделка</option>
+                <option value="Капитальный ремонт">Капитальный ремонт</option>
+                <option value="Дизайнерский ремонт">Дизайнерский ремонт</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Площадь (м²)</label>
+            <input type="text" class="form-input" id="area" placeholder="Например: 65">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Сообщение</label>
+            <textarea class="form-input" id="message" rows="3" placeholder="Опишите ваши пожелания..."></textarea>
+        </div>
+        <div class="form-status" id="formStatus"></div>
+        <button type="submit" class="form-btn" id="submitBtn">
+            <span>Отправить заявку</span>
+            <span class="btn-loader" style="display: none;">⏳</span>
+        </button>
+        <p class="modal-note">Свяжемся с вами в течение 15 минут</p>
+    </form>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-close" onclick="toggleMobileMenu()">×</div>
+    <div class="mobile-nav-item">
+        <a href="index.html" class="mobile-nav-link">Ремонт и дизайн</a>
+    </div>
+    <div class="mobile-nav-item">
+        <a href="../building/index.html" class="mobile-nav-link">Строительство домов</a>
+    </div>
+    <div class="mobile-nav-item">
+        <a href="../portfolio/index.html" class="mobile-nav-link">Портфолио</a>
+    </div>
+    <div class="mobile-nav-item">
+        <a href="../about/index.html" class="mobile-nav-link">О компании</a>
+    </div>
+    <div class="mobile-contacts">
+        <a href="tel:+79378303707">+7 (937) 830-37-07</a>
+        <a href="mailto:camil1971@mail.ru">camil1971@mail.ru</a>
+        <button onclick="openModal(); closeMobileMenu();" class="contact-btn" style="margin-top: 15px; width: 100%;">Заказать дизайн</button>
+    </div>
+</div>
+
+<header class="header">
+    <div class="container header-content">
+        <div class="logo">
+            <a href="../../index.html">
+                <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://via.placeholder.com/200x70/E65020/F3A119?text=САНРАЙЗ'">
+            </a>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item active">
+                <a href="index.html" class="nav-link">Ремонт и дизайн</a>
+            </li>
+            <li class="nav-item">
+                <a href="../building/index.html" class="nav-link">Строительство домов</a>
+            </li>
+            <li class="nav-item">
+                <a href="../portfolio/index.html" class="nav-link">Портфолио</a>
+            </li>
+            <li class="nav-item dropdown-right">
+                <a href="../about/index.html" class="nav-link">О компании</a>
+            </li>
+        </ul>
+        <div class="contacts-header">
+            <a href="tel:+79378303707" class="contact-badge">+7 (937) 830-37-07</a>
+            <a href="mailto:camil1971@mail.ru" class="contact-badge">camil1971@mail.ru</a>
+        </div>
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
+
+<!-- ГЕРОЙ -->
+<section class="renovation-hero">
+    <div class="container">
+        <h1 class="renovation-title"><span>Ремонт квартир</span> под ключ</h1>
+        <p class="renovation-subtitle">Сделаем ремонт, который вы полюбите. Фиксированная цена и сроки в договоре</p>
+        <button onclick="openModal()" class="hero-btn">Рассчитать стоимость →</button>
+    </div>
+</section>
+
+<!-- ТАРИФЫ И ЦЕНЫ -->
+<section class="section tariffs-section">
+    <div class="container">
+        <h2><span>Тарифы и цена</span> для разных видов ремонта</h2>
+        <p class="tariffs-subtitle">Стоимость ремонта квартир под ключ с материалом</p>
+
+        <div class="tariffs-grid">
+            <!-- Черновая отделка -->
+            <div class="tariff-card">
+                <div class="tariff-icon"></div>
+                <h3>Черновая отделка</h3>
+                <ul class="tariff-list">
+                    <li>Возведение перегородок</li>
+                    <li>Штукатурка стен и потолка</li>
+                    <li>Монтаж труб ХВС, ГВС и канализации</li>
+                    <li>Монтаж электропроводки</li>
+                    <li>Монтаж отопительных систем</li>
+                    <li>Стяжка пола</li>
+                    <li>Наливной самовыравнивающийся пол</li>
+                </ul>
+                <div class="tariff-price">
+                    от <span class="price-new">3 000</span> ₽/м²
+                </div>
+                <button onclick="openTariffModal('Черновая отделка')" class="tariff-btn">Оставить заявку</button>
+            </div>
+
+            <!-- Капитальный ремонт -->
+            <div class="tariff-card featured">
+                <div class="tariff-badge">Популярный</div>
+                <div class="tariff-icon"></div>
+                <h3>Капитальный ремонт</h3>
+                <ul class="tariff-list">
+                    <li>Демонтажные работы</li>
+                    <li>Кладка блоков (стен)</li>
+                    <li>Гидроизоляция мокрых зон</li>
+                    <li>Штукатурка стен и потолка</li>
+                    <li>Монтаж труб ХВС, ГВС и канализации</li>
+                    <li>Стяжка пола</li>
+                    <li>Наливной самовыравнивающийся пол</li>
+                    <li>Подбор чистовых материалов</li>
+                    <li>Поклейка обоев</li>
+                    <li>Покраска стен и потолков</li>
+                </ul>
+                <div class="tariff-price">
+                    от <span class="price-new">14 000</span> ₽/м²
+                </div>
+                <button onclick="openTariffModal('Капитальный ремонт')" class="tariff-btn">Оставить заявку</button>
+            </div>
+
+            <!-- Дизайнерский ремонт -->
+            <div class="tariff-card">
+                <div class="tariff-icon">🎨</div>
+                <h3>Дизайнерский ремонт</h3>
+                <ul class="tariff-list">
+                    <li>Ремонт строго по дизайн-проекту</li>
+                    <li>Надзор дизайнера</li>
+                    <li>Демонтажные работы</li>
+                    <li>Кладка блоков (стен)</li>
+                    <li>Гидроизоляция мокрых зон</li>
+                    <li>Штукатурка стен и потолка</li>
+                    <li>Монтаж всех коммуникаций</li>
+                    <li>Стяжка и наливной пол</li>
+                    <li>Чистовая отделка премиум-класса</li>
+                </ul>
+                <div class="tariff-price">
+                    от <span class="price-new">18 000</span> ₽/м²
+                </div>
+                <button onclick="openTariffModal('Дизайнерский ремонт')" class="tariff-btn">Оставить заявку</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ГАЛЕРЕЯ ДИЗАЙН-ПРОЕКТОВ -->
+<section class="section design-gallery">
+    <div class="container">
+        <h2><span>Наши</span> дизайн-проекты</h2>
+        <p class="gallery-subtitle">Реализованные проекты интерьеров</p>
+        <div class="projects-grid" id="projectsGrid"></div>
+        <div style="text-align: center; margin-top: 40px;">
+            <button onclick="openModal()" class="contact-btn" style="padding: 14px 35px; font-size: 1rem;">Заказать дизайн-проект</button>
+        </div>
+    </div>
+</section>
+
+<!-- ЭТАПЫ РАБОТЫ -->
+<section class="section design-steps">
+    <div class="container">
+        <h2><span>Этапы</span> работы</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <h3>Заявка</h3>
+                <p>Оставляете заявку на сайте</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <h3>Замер и смета</h3>
+                <p>Выезжаем на замер, составляем смету</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <h3>Дизайн-проект</h3>
+                <p>Разрабатываем 3D-визуализацию</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">04</div>
+                <h3>Закупка материалов</h3>
+                <p>Помогаем с выбором и доставкой</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">05</div>
+                <h3>Ремонт</h3>
+                <p>Выполняем работы под ключ</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">06</div>
+                <h3>Сдача объекта</h3>
+                <p>Принимаете готовый ремонт</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ФОРМА ОСТАВИТЬ ЗАЯВКУ -->
+<section class="section form-section">
+    <div class="container">
+        <div class="form-wrapper">
+            <h2>Оставьте <span>заявку</span></h2>
+            <p>Мы свяжемся с вами в ближайшее время</p>
+            <form id="callbackForm" onsubmit="sendCallbackForm(event)">
+                <div class="form-row">
+                    <input type="text" id="callbackName" placeholder="Ваше имя *" required>
+                    <input type="tel" id="callbackPhone" placeholder="Телефон *" required>
+                </div>
+                <div class="form-row">
+                    <select id="callbackType">
+                        <option value="">Выберите тип ремонта</option>
+                        <option value="Черновая отделка">Черновая отделка</option>
+                        <option value="Капитальный ремонт">Капитальный ремонт</option>
+                        <option value="Дизайнерский ремонт">Дизайнерский ремонт</option>
+                    </select>
+                    <input type="text" id="callbackArea" placeholder="Площадь, м²">
+                </div>
+                <button type="submit" class="submit-btn">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<button class="contact-fab" onclick="openModal()">
+    <span>✉️</span>
+    <span class="fab-text">Заказать дизайн</span>
+</button>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="../../logo.png" alt="Санрайз" onerror="this.src='https://via.placeholder.com/200x70/E65020/F3A119?text=САНРАЙЗ'">
+                </div>
+                <p>Строительство и ремонт с душой. Работаем в Башкортостане с 2012 года.</p>
+                <button onclick="openModal()" class="contact-btn" style="margin-top: 15px;">Бесплатный расчет</button>
+            </div>
+            <div class="footer-col">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Ремонт и дизайн</a></li>
+                    <li><a href="../building/index.html">Строительство</a></li>
+                    <li><a href="../portfolio/index.html">Портфолио</a></li>
+                    <li><a href="../about/index.html">О компании</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-requisites">
+                <span>ООО "Санрайз" | ИНН: 1234567890 | ОГРН: 1234567890123 | Юр. адрес: г. Уфа, ул. Строителей, д. 10</span>
+            </div>
+            <div>© 2026 Санрайз. Все права защищены.</div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/imask"></script>
+<script src="js/renovation.js"></script>
+</body>
+</html>

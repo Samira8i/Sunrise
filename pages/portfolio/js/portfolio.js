@@ -1,16 +1,11 @@
 /**
- * Дизайн проекты - скрипты для страницы
- * Все шрифты: 'Inter', sans-serif
+ * Портфолио - скрипты для страницы
  */
 
-// Данные проектов (8 проектов)
+// Данные проектов - только название и фото
 const projects = [
-    // ===== ПРОЕКТ 1 =====
     {
-        title: "Современный",
-        area: "120 м²",
-        description: "Чистые линии, максимум света и воздуха. Функциональное пространство без лишних деталей, где каждая вещь имеет свое место. Современные материалы и продуманная планировка для комфортной жизни.",
-        tags: ["Современный", "Минимализм", "Светлые тона", "Функциональность"],
+        title: "Казань, ул. Хади Такташ",
         images: [
             "images/project1/1.png",
             "images/project1/2.png",
@@ -18,96 +13,38 @@ const projects = [
             "images/project1/4.png"
         ]
     },
-    // ===== ПРОЕКТ 2 =====
     {
-        title: "Quiet Luxury",
-        area: "95 м²",
-        description: "Тихая роскошь в каждой детали. Дорогие натуральные материалы, сдержанная цветовая гамма и безупречное качество исполнения. Интерьер для тех, кто ценит истинную элегантность.",
-        tags: ["Quiet Luxury", "Натуральные материалы", "Сдержанная роскошь", "Элегантность"],
+        title: "Уфа, ЖК Уфимский кремль",
         images: [
             "images/project2/1.png",
             "images/project2/2.png",
-            "images/project2/3.png"
+            "images/project2/3.png",
+            "images/project2/4.png"
         ]
     },
-    // ===== ПРОЕКТ 3 =====
     {
-        title: "Современный минимализм",
-        area: "110 м²",
-        description: "Чистые линии, максимум света и воздуха. Функциональное пространство без лишних деталей, где каждая вещь имеет свое место. Идеально для современного человека.",
-        tags: ["Минимализм", "Современный", "Светлые тона", "Функциональность"],
+        title: "Уфа, поселок Цветы Башкирии",
         images: [
             "images/project3/1.png",
             "images/project3/2.png",
-            "images/project3/3.png"
+            "images/project3/3.png",
+            "images/project3/4.png"
         ]
     },
-    // ===== ПРОЕКТ 4 =====
     {
-        title: "Quiet Luxury",
-        area: "130 м²",
-        description: "Тихая роскошь в каждой детали. Дорогие натуральные материалы, сдержанная цветовая гамма и безупречное качество исполнения. Интерьер для тех, кто ценит истинную элегантность.",
-        tags: ["Quiet Luxury", "Натуральные материалы", "Сдержанная роскошь", "Элегантность"],
+        title: "Уфа, ЖК Империал",
         images: [
             "images/project4/1.png",
             "images/project4/2.png"
-        ]
-    },
-    // ===== ПРОЕКТ 5 (НОВЫЙ) - Современный 4 фото =====
-    {
-        title: "Современный",
-        area: "145 м²",
-        description: "Современный дизайн с акцентом на комфорт и функциональность. Открытое пространство, панорамное остекление и продуманное зонирование для всей семьи.",
-        tags: ["Современный", "Панорамное остекление", "Open space", "Семейный"],
-        images: [
-            "images/project5/1.png",
-            "images/project5/2.png",
-            "images/project5/3.png",
-            "images/project5/4.png"
-        ]
-    },
-    // ===== ПРОЕКТ 6 (НОВЫЙ) - Неоклассика 4 фото =====
-    {
-        title: "Неоклассика",
-        area: "160 м²",
-        description: "Изысканная неоклассика с элементами античности. Высокие потолки, лепнина, мраморные поверхности и благородная цветовая гамма создают атмосферу величия и уюта.",
-        tags: ["Неоклассика", "Античность", "Лепнина", "Мрамор", "Простор"],
-        images: [
-            "images/project6/1.png",
-            "images/project6/2.png",
-            "images/project6/3.png",
-            "images/project6/4.png"
-        ]
-    },
-    // ===== ПРОЕКТ 7 (НОВЫЙ) - Современный 3 фото =====
-    {
-        title: "Современный",
-        area: "85 м²",
-        description: "Компактная квартира в современном стиле. Каждая деталь продумана для максимальной эргономичности. Светлая палитра и умные системы хранения.",
-        tags: ["Современный", "Эргономика", "Компактный", "Светлый"],
-        images: [
-            "images/project7/1.png",
-            "images/project7/2.png",
-            "images/project7/3.png"
-        ]
-    },
-    // ===== ПРОЕКТ 8 (НОВЫЙ) - Quiet Luxury 3 фото =====
-    {
-        title: "Quiet Luxury",
-        area: "200 м²",
-        description: "Пентхаус в стиле Quiet Luxury. Натуральный камень, шпон ценных пород дерева, тактильные материалы и безупречная геометрия. Роскошь, которая не кричит о себе.",
-        tags: ["Quiet Luxury", "Пентхаус", "Натуральный камень", "Премиум"],
-        images: [
-            "images/project8/1.png",
-            "images/project8/2.png",
-            "images/project8/3.png"
         ]
     }
 ];
 
 let currentSlides = {};
 
-// Создание карусели
+// URL бэкенда
+const SERVER_URL = 'http://localhost:5001/send_message';
+
 function createCarousel(images, projectIndex) {
     let dots = '';
     for (let i = 0; i < images.length; i++) {
@@ -120,7 +57,7 @@ function createCarousel(images, projectIndex) {
                 <div class="carousel-inner" id="carousel-inner-${projectIndex}">
                     ${images.map(img => `
                         <div class="carousel-item">
-                            <img src="${img}" alt="Дизайн проект" loading="lazy" onerror="this.src='https://placehold.co/800x500/E65020/F3A119?text=Фото+проекта'">
+                            <img src="${img}" alt="Дизайн проект" loading="lazy" onerror="this.src='https://placehold.co/800x500/E65020/F3A119?text=Фото'">
                         </div>
                     `).join('')}
                 </div>
@@ -138,7 +75,6 @@ function updateCarousel(projectIndex) {
     const inner = document.getElementById(`carousel-inner-${projectIndex}`);
     if (inner) {
         inner.style.transform = `translateX(-${currentSlides[projectIndex] * 100}%)`;
-
         const dots = document.querySelectorAll(`.carousel-dots[data-project="${projectIndex}"] .carousel-dot`);
         dots.forEach((dot, i) => {
             if (i === currentSlides[projectIndex]) {
@@ -169,7 +105,6 @@ function goToSlide(projectIndex, slideIndex) {
     updateCarousel(projectIndex);
 }
 
-// Загрузка проектов
 function loadProjects() {
     const grid = document.getElementById('projectsGrid');
     if (!grid) return;
@@ -180,15 +115,8 @@ function loadProjects() {
         projectCard.innerHTML = `
             <div class="project-header">
                 <h3 class="project-title">${project.title}</h3>
-                <span class="project-area">${project.area}</span>
             </div>
             ${createCarousel(project.images, index)}
-            <div class="project-description">
-                ${project.description}
-            </div>
-            <div class="project-tags">
-                ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
-            </div>
         `;
         grid.appendChild(projectCard);
         currentSlides[index] = 0;
@@ -199,12 +127,10 @@ function loadProjects() {
             const projectIdx = parseInt(btn.getAttribute('data-project'));
             btn.addEventListener('click', () => prevSlide(projectIdx));
         });
-
         document.querySelectorAll('.carousel-btn.next').forEach(btn => {
             const projectIdx = parseInt(btn.getAttribute('data-project'));
             btn.addEventListener('click', () => nextSlide(projectIdx));
         });
-
         document.querySelectorAll('.carousel-dot').forEach(dot => {
             const dotsContainer = dot.closest('.carousel-dots');
             if (!dotsContainer) return;
@@ -215,7 +141,6 @@ function loadProjects() {
     }, 100);
 }
 
-// ========== МОБИЛЬНОЕ МЕНЮ ==========
 function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
     if (menu) {
@@ -232,16 +157,6 @@ function closeMobileMenu() {
     }
 }
 
-function toggleMobileDropdown(element) {
-    const parent = element.closest('.mobile-nav-item');
-    if (!parent) return;
-    const dropdown = parent.querySelector('.mobile-dropdown');
-    if (!dropdown) return;
-    element.classList.toggle('active');
-    dropdown.classList.toggle('active');
-}
-
-// ========== МОДАЛЬНОЕ ОКНО ==========
 function openModal() {
     const modalOverlay = document.getElementById('modalOverlay');
     const contactModal = document.getElementById('contactModal');
@@ -260,7 +175,20 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// ========== ОТПРАВКА ФОРМЫ ==========
+async function sendToBackend(name, phone, message) {
+    try {
+        const response = await fetch(SERVER_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, phone, message })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Ошибка отправки:', error);
+        return { success: false, error: 'Ошибка соединения' };
+    }
+}
+
 async function sendForm(event) {
     event.preventDefault();
 
@@ -278,12 +206,10 @@ async function sendForm(event) {
         showError('Введите ваше имя');
         return;
     }
-
     if (!phone || phone.includes('_')) {
         showError('Введите корректный номер телефона');
         return;
     }
-
     if (!agree) {
         showError('Необходимо согласие на обработку данных');
         return;
@@ -295,13 +221,18 @@ async function sendForm(event) {
     if (btnText) btnText.style.opacity = '0.7';
 
     try {
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        showSuccess('✓ Заявка отправлена! Мы свяжемся с вами.');
-        clearForm();
-        setTimeout(() => closeModal(), 2000);
+        const result = await sendToBackend(name, phone, message);
+
+        if (result.success) {
+            showSuccess('Заявка отправлена! Мы свяжемся с вами.');
+            clearForm();
+            setTimeout(() => closeModal(), 2000);
+        } else {
+            throw new Error(result.error || 'Ошибка отправки');
+        }
     } catch (error) {
         console.error('Error:', error);
-        showError('✗ Ошибка отправки. Попробуйте позже.');
+        showError('Ошибка отправки. Попробуйте позже.');
     } finally {
         if (submitBtn) submitBtn.disabled = false;
         if (loader) loader.style.display = 'none';
@@ -313,7 +244,7 @@ function showError(text) {
     const statusDiv = document.getElementById('formStatus');
     if (!statusDiv) return;
     statusDiv.className = 'form-status error';
-    statusDiv.textContent = '✗ ' + text;
+    statusDiv.textContent = text;
     statusDiv.style.display = 'block';
     setTimeout(() => {
         statusDiv.style.display = 'none';
@@ -337,7 +268,6 @@ function clearForm() {
     if (messageInput) messageInput.value = '';
 }
 
-// ========== ИНИЦИАЛИЗАЦИЯ ==========
 document.addEventListener('DOMContentLoaded', function() {
     loadProjects();
 
@@ -348,7 +278,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Закрытие меню при клике на ссылки
     document.querySelectorAll('.mobile-dropdown-item, .mobile-nav-link').forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
