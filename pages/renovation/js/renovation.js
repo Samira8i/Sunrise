@@ -136,7 +136,6 @@ async function sendDesignRequest(event) {
     const renovationType = document.getElementById('renovationType').value;
     const area = document.getElementById('area').value.trim();
     const message = document.getElementById('message').value.trim();
-    const agree = document.getElementById('agree').checked;
     const statusDiv = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
     const loader = submitBtn?.querySelector('.btn-loader');
@@ -144,7 +143,6 @@ async function sendDesignRequest(event) {
 
     if (!name) { showModalError('Введите ваше имя'); return; }
     if (!phone || phone.includes('_')) { showModalError('Введите корректный номер телефона'); return; }
-    if (!agree) { showModalError('Необходимо согласие на обработку данных'); return; }
 
     if (statusDiv) statusDiv.style.display = 'none';
     if (submitBtn) submitBtn.disabled = true;
@@ -236,13 +234,11 @@ function openTariffModal(tariffType) {
 async function sendTariffRequest(tariffType) {
     const name = document.getElementById('tariff_name').value.trim();
     const phone = document.getElementById('tariff_phone').value.trim();
-    const agree = document.getElementById('tariff_agree').checked;
     const submitBtn = document.querySelector('#tariffModalOverlay .submit-btn');
     const originalText = submitBtn.textContent;
 
     if (!name) { alert('Введите ваше имя'); return; }
     if (!phone || phone.includes('_')) { alert('Введите корректный номер телефона'); return; }
-    if (!agree) { alert('Необходимо согласие на обработку данных'); return; }
 
     submitBtn.textContent = 'Отправляем...';
     submitBtn.disabled = true;

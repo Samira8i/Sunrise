@@ -1,7 +1,8 @@
 // Данные для карусели проектов (только 2 фото)
 const projectsData = [
     { image: "images/2.png", caption: "Строительство дома" },
-    { image: "images/1.png", caption: "Ремонт квартиры в современном стиле" }
+    { image: "images/1.png", caption: "Ремонт квартиры в современном стиле" },
+    { image: "images/3.png", caption: "Строительство дома"}
 ];
 
 let currentSlide = 0;
@@ -104,7 +105,6 @@ async function sendForm(event) {
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const message = document.getElementById('message').value.trim();
-    const agree = document.getElementById('agree').checked;
 
     const statusDiv = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
@@ -118,11 +118,6 @@ async function sendForm(event) {
 
     if (!phone || phone.includes('_')) {
         showError('Введите корректный номер телефона');
-        return;
-    }
-
-    if (!agree) {
-        showError('Необходимо согласие на обработку данных');
         return;
     }
 

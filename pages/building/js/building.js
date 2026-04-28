@@ -24,7 +24,6 @@ async function sendForm(event) {
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const message = document.getElementById('message').value.trim();
-    const agree = document.getElementById('agree').checked;
 
     const statusDiv = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
@@ -37,10 +36,6 @@ async function sendForm(event) {
     }
     if (!phone || phone.includes('_')) {
         showError('Введите корректный номер телефона');
-        return;
-    }
-    if (!agree) {
-        showError('Необходимо согласие на обработку данных');
         return;
     }
 

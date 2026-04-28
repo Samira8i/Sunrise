@@ -22,7 +22,7 @@ const teamMembers = [
         photo: "/images/team/vladimir.jpg"
     },
     {
-        name: "Ахметов Салават Мидхатович",
+        name: "Ахметов Салават",
         position: "Руководитель строительных проектов",
         description: "",
         photo: "/images/team/salavat.jpg"
@@ -40,7 +40,7 @@ const teamMembers = [
         photo: "/images/team/murad.jpg"
     },
     {
-        name: "Тамбова Елизавета Владимировна",
+        name: "Тамбова Елизавета",
         position: "Дизайнер интерьера",
         description: "",
         photo: "/images/team/elizaveta.jpg"
